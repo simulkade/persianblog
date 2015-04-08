@@ -3,7 +3,7 @@
 .. slug: 2015-04-08-morgen-lopen-in-delft
 .. date: 2015-04-08 11:27:55 UTC+02:00
 .. tags: 
-.. category: 
+.. category: پیاده‌روی در دلفت
 .. link: 
 .. description: 
 .. type: text
