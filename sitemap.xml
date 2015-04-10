@@ -6,7 +6,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>http://persian.simulkade.com/2014/index.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/2015/index.html</loc>
@@ -14,11 +14,11 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/archive.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/categories/cat_grgrjt-trwsht.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/categories/cat_grgrjt.html</loc>
@@ -30,18 +30,14 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/categories/index.html</loc>
-  <lastmod>2015-04-08</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/categories/lm-w-thrwt.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/categories/trkh-tyd-bh-wb.html</loc>
-  <lastmod>2015-03-21</lastmod>
- </url>
- <url>
-  <loc>http://persian.simulkade.com/galleries/index.html</loc>
   <lastmod>2015-04-10</lastmod>
  </url>
  <url>
@@ -49,32 +45,44 @@
   <lastmod>2015-04-10</lastmod>
  </url>
  <url>
+  <loc>http://persian.simulkade.com/index-2.html</loc>
+  <lastmod>2015-04-10</lastmod>
+ </url>
+ <url>
+  <loc>http://persian.simulkade.com/index-3.html</loc>
+  <lastmod>2015-04-10</lastmod>
+ </url>
+ <url>
+  <loc>http://persian.simulkade.com/index-4.html</loc>
+  <lastmod>2015-04-10</lastmod>
+ </url>
+ <url>
+  <loc>http://persian.simulkade.com/index-5.html</loc>
+  <lastmod>2015-04-10</lastmod>
+ </url>
+ <url>
   <loc>http://persian.simulkade.com/index.html</loc>
   <lastmod>2015-04-10</lastmod>
  </url>
  <url>
-  <loc>http://persian.simulkade.com/listings/index.html</loc>
+  <loc>http://persian.simulkade.com/posts/2015-03-19-surface-tension.html</loc>
   <lastmod>2015-04-10</lastmod>
  </url>
  <url>
-  <loc>http://persian.simulkade.com/posts/2015-03-19-surface-tension.html</loc>
-  <lastmod>2015-03-22</lastmod>
- </url>
- <url>
   <loc>http://persian.simulkade.com/posts/2015-03-22-on-the-value-of-laziness.html</loc>
-  <lastmod>2015-03-28</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/2015-03-28-about-cemetery.html</loc>
-  <lastmod>2015-04-08</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/2015-04-08-lopen-in-delft-middag.html</loc>
-  <lastmod>2015-04-09</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/2015-04-08-morgen-lopen-in-delft.html</loc>
-  <lastmod>2015-04-08</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/2015-04-09-lopen-in-delft-middag.html</loc>
@@ -82,7 +90,7 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/2015-04-09-morgen-lopen-in-delft.html</loc>
-  <lastmod>2015-04-09</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/2015-04-10-lopen-in-delft-middag.html</loc>
@@ -94,34 +102,34 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/last-persian-year.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/one-month-without-browsing-part-ii.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/one-month-without-browsing-part-iii.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/one-month-without-browsing-part-iv.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/one-month-without-useless-browsing.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/post-internet-addiction.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/science-and-prosperity.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/todays-experiment.html</loc>
-  <lastmod>2015-03-21</lastmod>
+  <lastmod>2015-04-10</lastmod>
  </url>
 </urlset>
