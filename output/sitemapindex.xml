@@ -5,6 +5,10 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>http://persian.simulkade.com/categories/cat_ashpzy-akhr-hfth.xml</loc>
+  <lastmod>2015-04-19</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>http://persian.simulkade.com/categories/cat_grgrjt-trwsht.xml</loc>
   <lastmod>2015-03-21</lastmod>
  </sitemap>
@@ -26,10 +30,10 @@
  </sitemap>
  <sitemap>
   <loc>http://persian.simulkade.com/rss.xml</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-19</lastmod>
  </sitemap>
  <sitemap>
   <loc>http://persian.simulkade.com/sitemap.xml</loc>
-  <lastmod>2015-04-10</lastmod>
+  <lastmod>2015-04-19</lastmod>
  </sitemap>
 </sitemapindex>
