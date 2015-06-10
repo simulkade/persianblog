@@ -140,7 +140,7 @@ NAVIGATION_LINKS = {
 #}
 
 # Name of the theme to use.
-THEME = "persiansimulkade"
+THEME = "base"
 
 # Below this point, everything is optional
 
