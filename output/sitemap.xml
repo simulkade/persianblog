@@ -10,7 +10,7 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/2015/index.html</loc>
-  <lastmod>2015-06-11</lastmod>
+  <lastmod>2015-06-14</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/archive.html</loc>
@@ -34,7 +34,7 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/categories/cat_pydhrwy-dr-dlft.html</loc>
-  <lastmod>2015-06-11</lastmod>
+  <lastmod>2015-06-14</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/categories/index.html</loc>
@@ -51,10 +51,6 @@
  <url>
   <loc>http://persian.simulkade.com/categories/trkh-tyd-bh-wb.html</loc>
   <lastmod>2015-06-11</lastmod>
- </url>
- <url>
-  <loc>http://persian.simulkade.com/galleries/index.html</loc>
-  <lastmod>2015-06-10</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/index-1.html</loc>
@@ -90,7 +86,11 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/index-17.html</loc>
-  <lastmod>2015-06-11</lastmod>
+  <lastmod>2015-06-14</lastmod>
+ </url>
+ <url>
+  <loc>http://persian.simulkade.com/index-18.html</loc>
+  <lastmod>2015-06-14</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/index-2.html</loc>
@@ -126,11 +126,7 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/index.html</loc>
-  <lastmod>2015-06-11</lastmod>
- </url>
- <url>
-  <loc>http://persian.simulkade.com/listings/index.html</loc>
-  <lastmod>2015-06-10</lastmod>
+  <lastmod>2015-06-14</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/2015-03-19-surface-tension.html</loc>
@@ -310,7 +306,23 @@
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/2015-06-08-lopen-in-delft.html</loc>
-  <lastmod>2015-06-11</lastmod>
+  <lastmod>2015-06-14</lastmod>
+ </url>
+ <url>
+  <loc>http://persian.simulkade.com/posts/2015-06-09-lopen-in-delft.html</loc>
+  <lastmod>2015-06-14</lastmod>
+ </url>
+ <url>
+  <loc>http://persian.simulkade.com/posts/2015-06-10-lopen-in-delft.html</loc>
+  <lastmod>2015-06-14</lastmod>
+ </url>
+ <url>
+  <loc>http://persian.simulkade.com/posts/2015-06-11-lopen-in-delft.html</loc>
+  <lastmod>2015-06-14</lastmod>
+ </url>
+ <url>
+  <loc>http://persian.simulkade.com/posts/2015-06-12-lopen-in-delft.html</loc>
+  <lastmod>2015-06-14</lastmod>
  </url>
  <url>
   <loc>http://persian.simulkade.com/posts/last-persian-year.html</loc>
