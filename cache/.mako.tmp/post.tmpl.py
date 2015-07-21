@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1437334151.640909
+_modified_time = 1437512526.151781
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post.tmpl'
 _template_uri = u'post.tmpl'
@@ -90,7 +90,7 @@ def render_content(context,**pageargs):
         __M_writer(unicode(helper.html_pager(post)))
         __M_writer(u'\n    </nav>\n    </aside>\n')
         if not post.meta('nocomments') and site_has_comments:
-            __M_writer(u'        <section class="comments">\n        <h2>')
+            __M_writer(u'        <section class="comments hidden-print">\n        <h2>')
             __M_writer(unicode(messages("Comments")))
             __M_writer(u'</h2>\n        ')
             __M_writer(unicode(comments.comment_form(post.permalink(absolute=True), post.title(), post._base_path)))

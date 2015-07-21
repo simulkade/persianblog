@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1437334151.552166
+_modified_time = 1437512526.066495
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_helper.tmpl'
 _template_uri = u'base_helper.tmpl'
@@ -32,13 +32,14 @@ def render_html_translations(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         lang = context.get('lang', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
         translations = context.get('translations', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         _link = context.get('_link', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        sorted = context.get('sorted', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\n    <ul class="translations">\n')
-        for langname in translations.keys():
+        for langname in sorted(translations):
             if langname != lang:
                 __M_writer(u'            <li><a href="')
                 __M_writer(unicode(abs_link(_link("root", None, langname))))
@@ -198,6 +199,7 @@ def render_html_feedlinks(context):
         rss_link = context.get('rss_link', UNDEFINED)
         generate_rss = context.get('generate_rss', UNDEFINED)
         _link = context.get('_link', UNDEFINED)
+        sorted = context.get('sorted', UNDEFINED)
         generate_atom = context.get('generate_atom', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\n')
@@ -207,7 +209,7 @@ def render_html_feedlinks(context):
             __M_writer(u'\n')
         elif generate_rss:
             if len(translations) > 1:
-                for language in translations:
+                for language in sorted(translations):
                     __M_writer(u'                <link rel="alternate" type="application/rss+xml" title="RSS (')
                     __M_writer(unicode(language))
                     __M_writer(u')" href="')
@@ -219,7 +221,7 @@ def render_html_feedlinks(context):
                 __M_writer(u'">\n')
         if generate_atom:
             if len(translations) > 1:
-                for language in translations:
+                for language in sorted(translations):
                     __M_writer(u'                <link rel="alternate" type="application/atom+xml" title="Atom (')
                     __M_writer(unicode(language))
                     __M_writer(u')" href="')
@@ -236,6 +238,6 @@ def render_html_feedlinks(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 0, "20": 2, "21": 61, "22": 65, "23": 86, "24": 109, "25": 119, "31": 111, "40": 111, "41": 113, "42": 114, "43": 115, "44": 115, "45": 115, "46": 115, "47": 115, "48": 115, "49": 115, "50": 118, "56": 3, "83": 3, "84": 6, "85": 7, "86": 8, "87": 10, "88": 11, "89": 13, "90": 14, "91": 15, "92": 17, "93": 18, "94": 21, "95": 21, "96": 21, "97": 24, "98": 25, "99": 25, "100": 25, "101": 27, "102": 28, "103": 28, "104": 28, "105": 28, "106": 30, "107": 30, "108": 31, "109": 31, "110": 32, "111": 33, "112": 33, "113": 33, "114": 35, "115": 36, "116": 37, "117": 38, "118": 38, "119": 38, "120": 38, "121": 38, "122": 38, "123": 38, "124": 41, "125": 42, "126": 43, "127": 43, "128": 43, "129": 45, "130": 46, "131": 47, "132": 47, "133": 47, "134": 49, "135": 50, "136": 50, "137": 50, "138": 52, "139": 53, "140": 53, "141": 54, "142": 55, "143": 56, "144": 57, "145": 57, "146": 57, "147": 59, "148": 60, "149": 60, "155": 63, "160": 63, "161": 64, "162": 64, "168": 67, "176": 67, "177": 68, "178": 69, "179": 70, "180": 71, "181": 72, "182": 74, "183": 75, "184": 78, "185": 79, "186": 82, "187": 83, "193": 88, "203": 88, "204": 89, "205": 90, "206": 90, "207": 90, "208": 91, "209": 92, "210": 93, "211": 94, "212": 94, "213": 94, "214": 94, "215": 94, "216": 96, "217": 97, "218": 97, "219": 97, "220": 100, "221": 101, "222": 102, "223": 103, "224": 103, "225": 103, "226": 103, "227": 103, "228": 105, "229": 106, "230": 106, "231": 106, "237": 231}, "uri": "base_helper.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_helper.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"15": 0, "20": 2, "21": 61, "22": 65, "23": 86, "24": 109, "25": 119, "31": 111, "41": 111, "42": 113, "43": 114, "44": 115, "45": 115, "46": 115, "47": 115, "48": 115, "49": 115, "50": 115, "51": 118, "57": 3, "84": 3, "85": 6, "86": 7, "87": 8, "88": 10, "89": 11, "90": 13, "91": 14, "92": 15, "93": 17, "94": 18, "95": 21, "96": 21, "97": 21, "98": 24, "99": 25, "100": 25, "101": 25, "102": 27, "103": 28, "104": 28, "105": 28, "106": 28, "107": 30, "108": 30, "109": 31, "110": 31, "111": 32, "112": 33, "113": 33, "114": 33, "115": 35, "116": 36, "117": 37, "118": 38, "119": 38, "120": 38, "121": 38, "122": 38, "123": 38, "124": 38, "125": 41, "126": 42, "127": 43, "128": 43, "129": 43, "130": 45, "131": 46, "132": 47, "133": 47, "134": 47, "135": 49, "136": 50, "137": 50, "138": 50, "139": 52, "140": 53, "141": 53, "142": 54, "143": 55, "144": 56, "145": 57, "146": 57, "147": 57, "148": 59, "149": 60, "150": 60, "156": 63, "161": 63, "162": 64, "163": 64, "169": 67, "177": 67, "178": 68, "179": 69, "180": 70, "181": 71, "182": 72, "183": 74, "184": 75, "185": 78, "186": 79, "187": 82, "188": 83, "194": 88, "205": 88, "206": 89, "207": 90, "208": 90, "209": 90, "210": 91, "211": 92, "212": 93, "213": 94, "214": 94, "215": 94, "216": 94, "217": 94, "218": 96, "219": 97, "220": 97, "221": 97, "222": 100, "223": 101, "224": 102, "225": 103, "226": 103, "227": 103, "228": 103, "229": 103, "230": 105, "231": 106, "232": 106, "233": 106, "239": 233}, "uri": "base_helper.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_helper.tmpl"}
 __M_END_METADATA
 """
