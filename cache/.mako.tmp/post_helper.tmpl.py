@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1437512526.166076
+_modified_time = 1440001306.428721
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post_helper.tmpl'
 _template_uri = u'post_helper.tmpl'
@@ -181,7 +181,7 @@ def render_open_graph_metadata(context,post):
             __M_writer(u'    <meta property="og:type" content="article">\n')
             if post.date.isoformat():
                 __M_writer(u'    <meta property="article:published_time" content="')
-                __M_writer(unicode(post.date.isoformat()))
+                __M_writer(unicode(post.formatted_date('webiso')))
                 __M_writer(u'">\n')
             if post.tags:
                 for tag in post.tags:

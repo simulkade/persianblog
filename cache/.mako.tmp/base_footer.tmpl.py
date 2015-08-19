@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1437512526.092874
+_modified_time = 1440001306.548754
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_footer.tmpl'
 _template_uri = u'base_footer.tmpl'
@@ -46,7 +46,7 @@ def render_html_footer(context):
         __M_writer = context.writer()
         __M_writer(u'\n')
         if content_footer:
-            __M_writer(u'        <footer id="footer" role="contentinfo">\n            <p>')
+            __M_writer(u'        <footer id="footer">\n            <p>')
             __M_writer(unicode(content_footer))
             __M_writer(u'</p>\n            ')
             __M_writer(unicode(template_hooks['page_footer']()))

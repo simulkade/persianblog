@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1437512526.083458
+_modified_time = 1440001306.53764
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_header.tmpl'
 _template_uri = u'base_header.tmpl'
@@ -53,7 +53,7 @@ def render_html_navigation_links(context):
         rel_link = _import_ns.get('rel_link', context.get('rel_link', UNDEFINED))
         isinstance = _import_ns.get('isinstance', context.get('isinstance', UNDEFINED))
         __M_writer = context.writer()
-        __M_writer(u'\n    <nav id="menu" role="navigation">\n    <ul>\n')
+        __M_writer(u'\n    <nav id="menu">\n    <ul>\n')
         for url, text in navigation_links[lang]:
             if isinstance(url, tuple):
                 __M_writer(u'            <li> ')
@@ -136,7 +136,7 @@ def render_html_header(context):
         def html_site_title():
             return render_html_site_title(context)
         __M_writer = context.writer()
-        __M_writer(u'\n    <header id="header" role="banner">\n        ')
+        __M_writer(u'\n    <header id="header">\n        ')
         __M_writer(unicode(html_site_title()))
         __M_writer(u'\n        ')
         __M_writer(unicode(html_translation_header()))

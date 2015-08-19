@@ -4,7 +4,7 @@ UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1437512526.181907
+_modified_time = 1440001306.446465
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post_header.tmpl'
 _template_uri = u'post_header.tmpl'
@@ -63,7 +63,7 @@ def render_html_post_header(context):
         __M_writer(u'</span></p>\n            <p class="dateline"><a href="')
         __M_writer(unicode(post.permalink()))
         __M_writer(u'" rel="bookmark"><time class="published dt-published" datetime="')
-        __M_writer(unicode(post.date.isoformat()))
+        __M_writer(unicode(post.formatted_date('webiso')))
         __M_writer(u'" itemprop="datePublished" title="')
         __M_writer(unicode(post.formatted_date(date_format)))
         __M_writer(u'">')
