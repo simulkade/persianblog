@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.697545
+_modified_time = 1442872973.070871
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post.tmpl'
 _template_uri = u'post.tmpl'
@@ -123,10 +124,10 @@ def render_extra_head(context,**pageargs):
             __M_writer(u'">\n')
         if post.description():
             __M_writer(u'    <meta name="description" content="')
-            __M_writer(unicode(post.description()))
+            __M_writer(filters.html_escape(unicode(post.description())))
             __M_writer(u'">\n')
         __M_writer(u'    <meta name="author" content="')
-        __M_writer(unicode(post.author()))
+        __M_writer(filters.html_escape(unicode(post.author())))
         __M_writer(u'">\n')
         if post.prev_post:
             __M_writer(u'        <link rel="prev" href="')
@@ -156,6 +157,6 @@ def render_extra_head(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"128": 15, "129": 15, "130": 15, "131": 16, "132": 17, "133": 17, "134": 17, "135": 17, "136": 17, "137": 19, "138": 20, "139": 20, "140": 20, "141": 20, "142": 20, "143": 22, "144": 23, "145": 25, "146": 25, "147": 25, "148": 26, "149": 26, "22": 3, "151": 27, "25": 4, "28": 2, "157": 151, "150": 27, "34": 0, "50": 2, "51": 3, "52": 4, "53": 5, "58": 28, "63": 51, "69": 30, "81": 30, "82": 31, "83": 31, "84": 32, "85": 32, "86": 34, "87": 34, "88": 38, "89": 38, "90": 39, "91": 39, "92": 42, "93": 43, "94": 44, "95": 44, "96": 45, "97": 45, "98": 48, "99": 48, "100": 48, "101": 50, "102": 50, "108": 7, "117": 7, "118": 8, "119": 8, "120": 9, "121": 10, "122": 10, "123": 10, "124": 12, "125": 13, "126": 13, "127": 13}, "uri": "post.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"128": 13, "129": 15, "130": 15, "131": 15, "132": 16, "133": 17, "134": 17, "135": 17, "136": 17, "137": 17, "138": 19, "139": 20, "140": 20, "141": 20, "142": 20, "143": 20, "144": 22, "145": 23, "146": 25, "147": 25, "148": 25, "149": 26, "150": 26, "23": 3, "152": 27, "26": 4, "29": 2, "158": 152, "35": 0, "51": 2, "52": 3, "53": 4, "54": 5, "59": 28, "151": 27, "64": 51, "70": 30, "82": 30, "83": 31, "84": 31, "85": 32, "86": 32, "87": 34, "88": 34, "89": 38, "90": 38, "91": 39, "92": 39, "93": 42, "94": 43, "95": 44, "96": 44, "97": 45, "98": 45, "99": 48, "100": 48, "101": 48, "102": 50, "103": 50, "109": 7, "118": 7, "119": 8, "120": 8, "121": 9, "122": 10, "123": 10, "124": 10, "125": 12, "126": 13, "127": 13}, "uri": "post.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post.tmpl"}
 __M_END_METADATA
 """

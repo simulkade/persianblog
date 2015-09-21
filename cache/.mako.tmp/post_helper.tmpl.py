@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.716278
+_modified_time = 1442872973.091131
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post_helper.tmpl'
 _template_uri = u'post_helper.tmpl'
@@ -43,7 +44,7 @@ def render_html_tags(context,post):
                     __M_writer(u'            <li><a class="tag p-category" href="')
                     __M_writer(unicode(_link('tag', tag)))
                     __M_writer(u'" rel="tag">')
-                    __M_writer(unicode(tag))
+                    __M_writer(filters.html_escape(unicode(tag)))
                     __M_writer(u'</a></li>\n')
             __M_writer(u'        </ul>\n')
         return ''
@@ -137,10 +138,14 @@ def render_meta_translations(context,post):
 def render_mathjax_script(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
+        use_katex = context.get('use_katex', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\n')
         if post.is_mathjax:
-            __M_writer(u'        <script type="text/x-mathjax-config">\n        MathJax.Hub.Config({tex2jax: {inlineMath: [[\'$latex \',\'$\'], [\'\\\\(\',\'\\\\)\']]}});</script>\n        <script src="/assets/js/mathjax.js"></script>\n')
+            if use_katex:
+                __M_writer(u'            <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min.js"></script>\n            <script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/contrib/auto-render.min.js"></script>\n            <script>\n                renderMathInElement(document.body);\n            </script>\n')
+            else:
+                __M_writer(u'            <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>\n            <script type="text/x-mathjax-config">\n            MathJax.Hub.Config({tex2jax: {inlineMath: [[\'$latex \',\'$\'], [\'\\\\(\',\'\\\\)\']]}});\n            </script>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -152,7 +157,6 @@ def render_open_graph_metadata(context,post):
         lang = context.get('lang', UNDEFINED)
         permalink = context.get('permalink', UNDEFINED)
         url_replacer = context.get('url_replacer', UNDEFINED)
-        striphtml = context.get('striphtml', UNDEFINED)
         abs_link = context.get('abs_link', UNDEFINED)
         blog_title = context.get('blog_title', UNDEFINED)
         use_open_graph = context.get('use_open_graph', UNDEFINED)
@@ -160,7 +164,7 @@ def render_open_graph_metadata(context,post):
         __M_writer(u'\n')
         if use_open_graph:
             __M_writer(u'    <meta property="og:site_name" content="')
-            __M_writer(striphtml(unicode(blog_title)))
+            __M_writer(filters.html_escape(unicode(blog_title)))
             __M_writer(u'">\n    <meta property="og:title" content="')
             __M_writer(filters.html_escape(unicode(post.title()[:70])))
             __M_writer(u'">\n    <meta property="og:url" content="')
@@ -186,7 +190,7 @@ def render_open_graph_metadata(context,post):
             if post.tags:
                 for tag in post.tags:
                     __M_writer(u'           <meta property="article:tag" content="')
-                    __M_writer(unicode(tag))
+                    __M_writer(filters.html_escape(unicode(tag)))
                     __M_writer(u'">\n')
         return ''
     finally:
@@ -195,6 +199,6 @@ def render_open_graph_metadata(context,post):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 0, "20": 2, "21": 11, "22": 23, "23": 40, "24": 69, "25": 85, "26": 93, "32": 13, "38": 13, "39": 14, "40": 15, "41": 16, "42": 17, "43": 18, "44": 18, "45": 18, "46": 18, "47": 18, "48": 21, "54": 25, "59": 25, "60": 26, "61": 27, "62": 28, "63": 29, "64": 30, "65": 30, "66": 30, "67": 30, "68": 30, "69": 30, "70": 33, "71": 34, "72": 35, "73": 35, "74": 35, "75": 35, "76": 35, "77": 35, "78": 38, "84": 71, "89": 71, "90": 72, "91": 73, "92": 73, "93": 73, "94": 74, "95": 75, "96": 75, "97": 75, "98": 76, "99": 77, "100": 77, "101": 77, "102": 79, "103": 80, "104": 80, "105": 80, "106": 81, "107": 82, "108": 82, "109": 82, "115": 3, "123": 3, "124": 4, "125": 5, "126": 6, "127": 7, "128": 7, "129": 7, "130": 7, "131": 7, "137": 87, "141": 87, "142": 88, "143": 89, "149": 42, "160": 42, "161": 43, "162": 44, "163": 44, "164": 44, "165": 45, "166": 45, "167": 46, "168": 46, "169": 47, "170": 48, "171": 48, "172": 48, "173": 49, "174": 50, "175": 50, "176": 50, "177": 52, "178": 53, "179": 53, "180": 53, "181": 55, "182": 60, "183": 61, "184": 61, "185": 61, "186": 63, "187": 64, "188": 65, "189": 65, "190": 65, "196": 190}, "uri": "post_helper.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post_helper.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"16": 0, "21": 2, "22": 11, "23": 23, "24": 40, "25": 69, "26": 85, "27": 102, "33": 13, "39": 13, "40": 14, "41": 15, "42": 16, "43": 17, "44": 18, "45": 18, "46": 18, "47": 18, "48": 18, "49": 21, "55": 25, "60": 25, "61": 26, "62": 27, "63": 28, "64": 29, "65": 30, "66": 30, "67": 30, "68": 30, "69": 30, "70": 30, "71": 33, "72": 34, "73": 35, "74": 35, "75": 35, "76": 35, "77": 35, "78": 35, "79": 38, "85": 71, "90": 71, "91": 72, "92": 73, "93": 73, "94": 73, "95": 74, "96": 75, "97": 75, "98": 75, "99": 76, "100": 77, "101": 77, "102": 77, "103": 79, "104": 80, "105": 80, "106": 80, "107": 81, "108": 82, "109": 82, "110": 82, "116": 3, "124": 3, "125": 4, "126": 5, "127": 6, "128": 7, "129": 7, "130": 7, "131": 7, "132": 7, "138": 87, "143": 87, "144": 88, "145": 89, "146": 90, "147": 95, "148": 96, "154": 42, "164": 42, "165": 43, "166": 44, "167": 44, "168": 44, "169": 45, "170": 45, "171": 46, "172": 46, "173": 47, "174": 48, "175": 48, "176": 48, "177": 49, "178": 50, "179": 50, "180": 50, "181": 52, "182": 53, "183": 53, "184": 53, "185": 55, "186": 60, "187": 61, "188": 61, "189": 61, "190": 63, "191": 64, "192": 65, "193": 65, "194": 65, "200": 194}, "uri": "post_helper.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/post_helper.tmpl"}
 __M_END_METADATA
 """

@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.775326
+_modified_time = 1442872973.150646
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_livefyre.tmpl'
 _template_uri = u'comments_helper_livefyre.tmpl'
@@ -69,6 +70,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"64": 31, "33": 2, "34": 7, "35": 7, "36": 11, "37": 11, "70": 64, "60": 31, "43": 23, "15": 0, "48": 23, "49": 24, "50": 24, "51": 25, "20": 21, "21": 28, "22": 33, "52": 25, "54": 25, "28": 2, "53": 25}, "uri": "comments_helper_livefyre.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_livefyre.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"65": 31, "34": 2, "35": 7, "36": 7, "37": 11, "38": 11, "71": 65, "55": 25, "44": 23, "61": 31, "16": 0, "49": 23, "50": 24, "51": 24, "52": 25, "21": 21, "22": 28, "23": 33, "54": 25, "29": 2, "53": 25}, "uri": "comments_helper_livefyre.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_livefyre.tmpl"}
 __M_END_METADATA
 """

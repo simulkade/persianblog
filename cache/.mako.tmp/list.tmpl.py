@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.898941
+_modified_time = 1442872973.36145
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/list.tmpl'
 _template_uri = 'list.tmpl'
@@ -54,16 +55,20 @@ def render_content(context,**pageargs):
         title = context.get('title', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\n<article class="listpage">\n    <header>\n        <h1>')
-        __M_writer(unicode(title))
+        __M_writer(filters.html_escape(unicode(title)))
         __M_writer(u'</h1>\n    </header>\n')
         if items:
             __M_writer(u'    <ul class="postlist">\n')
-            for text, link in items:
+            for text, link, count in items:
                 __M_writer(u'        <li><a href="')
                 __M_writer(unicode(link))
                 __M_writer(u'">')
-                __M_writer(unicode(text))
+                __M_writer(filters.html_escape(unicode(text)))
                 __M_writer(u'</a>\n')
+                if count:
+                    __M_writer(u'            (')
+                    __M_writer(unicode(count))
+                    __M_writer(u')\n')
             __M_writer(u'    </ul>\n')
         else:
             __M_writer(u'    <p>')
@@ -77,6 +82,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"26": 0, "36": 2, "41": 19, "47": 4, "56": 4, "57": 7, "58": 7, "59": 9, "60": 10, "61": 11, "62": 12, "63": 12, "64": 12, "65": 12, "66": 12, "67": 14, "68": 15, "69": 16, "70": 16, "71": 16, "72": 18, "78": 72}, "uri": "list.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/list.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"27": 0, "37": 2, "42": 22, "48": 4, "57": 4, "58": 7, "59": 7, "60": 9, "61": 10, "62": 11, "63": 12, "64": 12, "65": 12, "66": 12, "67": 12, "68": 13, "69": 14, "70": 14, "71": 14, "72": 17, "73": 18, "74": 19, "75": 19, "76": 19, "77": 21, "83": 77}, "uri": "list.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/list.tmpl"}
 __M_END_METADATA
 """

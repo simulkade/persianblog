@@ -1,10 +1,11 @@
 # -*- coding:ascii -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.852589
+_modified_time = 1442872973.227967
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/annotation_helper.tmpl'
 _template_uri = u'annotation_helper.tmpl'
@@ -46,6 +47,6 @@ def render_css(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "ascii", "line_map": {"37": 1, "41": 1, "47": 41, "15": 0, "20": 3, "21": 16, "27": 5, "31": 5}, "uri": "annotation_helper.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/annotation_helper.tmpl"}
+{"source_encoding": "ascii", "line_map": {"32": 5, "48": 42, "38": 1, "42": 1, "16": 0, "21": 3, "22": 16, "28": 5}, "uri": "annotation_helper.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/annotation_helper.tmpl"}
 __M_END_METADATA
 """

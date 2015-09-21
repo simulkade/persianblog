@@ -1,15 +1,16 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.804088
+_modified_time = 1442872973.176952
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base.tmpl'
 _template_uri = u'base.tmpl'
 _source_encoding = 'utf-8'
-_exports = [u'content', u'extra_head']
+_exports = [u'content', u'extra_head', u'extra_js']
 
 
 def _mako_get_namespace(context, name):
@@ -51,6 +52,8 @@ def render_body(context,**pageargs):
             return render_content(context._locals(__M_locals))
         header = _mako_get_namespace(context, 'header')
         base = _mako_get_namespace(context, 'base')
+        def extra_js():
+            return render_extra_js(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer(u'\n')
         __M_writer(u'\n')
@@ -78,11 +81,16 @@ def render_body(context,**pageargs):
         __M_writer(u'\n         </main>\n         ')
         __M_writer(unicode(footer.html_footer()))
         __M_writer(u'\n    </div>\n    ')
+        __M_writer(unicode(base.late_load_js()))
+        __M_writer(u'\n    ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'extra_js'):
+            context['self'].extra_js(**pageargs)
+        
+
+        __M_writer(u'\n    ')
         __M_writer(unicode(body_end))
         __M_writer(u'\n    ')
         __M_writer(unicode(template_hooks['body_end']()))
-        __M_writer(u'\n    ')
-        __M_writer(unicode(base.late_load_js()))
         __M_writer(u'\n</body>\n</html>\n')
         return ''
     finally:
@@ -120,8 +128,23 @@ def render_extra_head(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_extra_js(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        _import_ns = {}
+        _mako_get_namespace(context, u'header')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, u'base')._populate(_import_ns, [u'*'])
+        _mako_get_namespace(context, u'footer')._populate(_import_ns, [u'*'])
+        def extra_js():
+            return render_extra_js(context)
+        __M_writer = context.writer()
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 3, "25": 2, "28": 5, "31": 4, "34": 0, "55": 2, "56": 3, "57": 4, "58": 5, "59": 6, "60": 6, "61": 7, "62": 7, "67": 10, "68": 11, "69": 11, "70": 14, "71": 14, "72": 16, "73": 16, "78": 18, "79": 20, "80": 20, "81": 22, "82": 22, "83": 23, "84": 23, "85": 24, "86": 24, "92": 18, "107": 8, "117": 8, "123": 117}, "uri": "base.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"131": 23, "146": 131, "23": 3, "26": 2, "29": 5, "32": 4, "35": 0, "58": 2, "59": 3, "60": 4, "61": 5, "62": 6, "63": 6, "64": 7, "65": 7, "70": 10, "71": 11, "72": 11, "73": 14, "74": 14, "75": 16, "76": 16, "81": 18, "82": 20, "83": 20, "84": 22, "85": 22, "90": 23, "91": 24, "92": 24, "93": 25, "94": 25, "100": 18, "115": 8, "125": 8}, "uri": "base.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base.tmpl"}
 __M_END_METADATA
 """

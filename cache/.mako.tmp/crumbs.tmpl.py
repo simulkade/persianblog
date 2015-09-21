@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.977562
+_modified_time = 1442872973.295067
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/crumbs.tmpl'
 _template_uri = u'crumbs.tmpl'
@@ -52,6 +53,6 @@ def render_bar(context,crumbs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"32": 3, "33": 4, "34": 5, "35": 7, "36": 8, "37": 9, "38": 10, "39": 10, "40": 10, "41": 11, "42": 12, "43": 12, "44": 12, "45": 12, "46": 12, "15": 0, "47": 16, "20": 2, "21": 19, "27": 3, "53": 47}, "uri": "crumbs.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/crumbs.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"33": 3, "34": 4, "35": 5, "36": 7, "37": 8, "38": 9, "39": 10, "40": 10, "41": 10, "42": 11, "43": 12, "44": 12, "45": 12, "46": 12, "47": 12, "16": 0, "48": 16, "21": 2, "22": 19, "54": 48, "28": 3}, "uri": "crumbs.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/crumbs.tmpl"}
 __M_END_METADATA
 """

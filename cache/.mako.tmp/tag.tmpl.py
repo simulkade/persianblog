@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.944359
+_modified_time = 1442872973.31676
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/tag.tmpl'
 _template_uri = u'tag.tmpl'
@@ -86,7 +87,7 @@ def render_content(context,**pageargs):
         __M_writer(u'</h1>\n')
         if description:
             __M_writer(u'        <p>')
-            __M_writer(unicode(description))
+            __M_writer(filters.html_escape(unicode(description)))
             __M_writer(u'</p>\n')
         if subcategories:
             __M_writer(u'        ')
@@ -96,7 +97,7 @@ def render_content(context,**pageargs):
                 __M_writer(u'            <li><a href="')
                 __M_writer(unicode(link))
                 __M_writer(u'">')
-                __M_writer(unicode(name))
+                __M_writer(filters.html_escape(unicode(name)))
                 __M_writer(u'</a></li>\n')
             __M_writer(u'        </ul>\n')
         __M_writer(u'        <div class="metadata">\n')
@@ -121,17 +122,17 @@ def render_content(context,**pageargs):
         if posts:
             __M_writer(u'    <ul class="postlist">\n')
             for post in posts:
-                __M_writer(u'        <li><a href="')
+                __M_writer(u'        <li><time class="listdate" datetime="')
+                __M_writer(unicode(post.formatted_date('webiso')))
+                __M_writer(u'" title="')
+                __M_writer(filters.html_escape(unicode(post.formatted_date(date_format))))
+                __M_writer(u'">')
+                __M_writer(filters.html_escape(unicode(post.formatted_date(date_format))))
+                __M_writer(u'</time><a href="')
                 __M_writer(unicode(post.permalink()))
                 __M_writer(u'" class="listtitle">')
                 __M_writer(filters.html_escape(unicode(post.title())))
-                __M_writer(u'</a> <time class="listdate" datetime="')
-                __M_writer(unicode(post.formatted_date('webiso')))
-                __M_writer(u'" title="')
-                __M_writer(unicode(post.formatted_date(date_format)))
-                __M_writer(u'">')
-                __M_writer(unicode(post.formatted_date(date_format)))
-                __M_writer(u'</time></li>\n')
+                __M_writer(u'<a></li>\n')
             __M_writer(u'    </ul>\n')
         __M_writer(u'</article>\n')
         return ''
@@ -158,20 +159,20 @@ def render_extra_head(context,**pageargs):
         __M_writer(u'\n')
         if len(translations) > 1 and generate_rss:
             for language in sorted(translations):
-                __M_writer(u'            <link rel="alternate" type="application/rss+xml" type="application/rss+xml" title="RSS for ')
+                __M_writer(u'            <link rel="alternate" type="application/rss+xml" title="RSS for ')
                 __M_writer(unicode(kind))
                 __M_writer(u' ')
-                __M_writer(unicode(tag))
+                __M_writer(filters.html_escape(unicode(tag)))
                 __M_writer(u' (')
                 __M_writer(unicode(language))
                 __M_writer(u')" href="')
                 __M_writer(unicode(_link(kind + "_rss", tag, language)))
                 __M_writer(u'">\n')
         elif generate_rss:
-            __M_writer(u'        <link rel="alternate" type="application/rss+xml" type="application/rss+xml" title="RSS for ')
+            __M_writer(u'        <link rel="alternate" type="application/rss+xml" title="RSS for ')
             __M_writer(unicode(kind))
             __M_writer(u' ')
-            __M_writer(unicode(tag))
+            __M_writer(filters.html_escape(unicode(tag)))
             __M_writer(u'" href="')
             __M_writer(unicode(_link(kind + "_rss", tag)))
             __M_writer(u'">\n')
@@ -182,6 +183,6 @@ def render_extra_head(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"128": 46, "129": 46, "130": 46, "131": 46, "132": 46, "133": 46, "134": 46, "135": 48, "136": 50, "142": 4, "26": 0, "156": 4, "157": 5, "158": 5, "159": 6, "160": 7, "161": 8, "162": 8, "163": 8, "164": 8, "165": 8, "166": 8, "167": 8, "168": 8, "169": 8, "170": 10, "171": 11, "172": 11, "173": 11, "174": 11, "175": 11, "176": 11, "49": 2, "54": 13, "183": 177, "59": 51, "65": 16, "177": 11, "84": 16, "85": 19, "86": 19, "87": 20, "88": 21, "89": 21, "90": 21, "91": 23, "92": 24, "93": 24, "94": 24, "95": 26, "96": 27, "97": 27, "98": 27, "99": 27, "100": 27, "101": 29, "102": 31, "103": 32, "104": 33, "105": 34, "106": 35, "107": 35, "108": 35, "109": 35, "110": 35, "111": 35, "112": 35, "113": 35, "114": 38, "115": 39, "116": 39, "117": 39, "118": 39, "119": 39, "120": 41, "121": 43, "122": 44, "123": 45, "124": 46, "125": 46, "126": 46, "127": 46}, "uri": "tag.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/tag.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"128": 46, "129": 46, "130": 46, "131": 46, "132": 46, "133": 46, "134": 46, "135": 46, "136": 48, "137": 50, "143": 4, "178": 11, "27": 0, "157": 4, "158": 5, "159": 5, "160": 6, "161": 7, "162": 8, "163": 8, "164": 8, "165": 8, "166": 8, "167": 8, "168": 8, "169": 8, "170": 8, "171": 10, "172": 11, "173": 11, "174": 11, "175": 11, "176": 11, "177": 11, "50": 2, "55": 13, "184": 178, "60": 51, "66": 16, "85": 16, "86": 19, "87": 19, "88": 20, "89": 21, "90": 21, "91": 21, "92": 23, "93": 24, "94": 24, "95": 24, "96": 26, "97": 27, "98": 27, "99": 27, "100": 27, "101": 27, "102": 29, "103": 31, "104": 32, "105": 33, "106": 34, "107": 35, "108": 35, "109": 35, "110": 35, "111": 35, "112": 35, "113": 35, "114": 35, "115": 38, "116": 39, "117": 39, "118": 39, "119": 39, "120": 39, "121": 41, "122": 43, "123": 44, "124": 45, "125": 46, "126": 46, "127": 46}, "uri": "tag.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/tag.tmpl"}
 __M_END_METADATA
 """

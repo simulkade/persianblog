@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.779924
+_modified_time = 1442872973.155248
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_intensedebate.tmpl'
 _template_uri = u'comments_helper_intensedebate.tmpl'
@@ -75,6 +76,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 0, "20": 11, "21": 22, "22": 25, "28": 2, "33": 2, "34": 4, "35": 4, "36": 5, "37": 5, "38": 6, "39": 6, "45": 13, "50": 13, "51": 14, "52": 14, "53": 14, "54": 14, "55": 16, "56": 16, "57": 17, "58": 17, "59": 18, "60": 18, "66": 24, "70": 24, "76": 70}, "uri": "comments_helper_intensedebate.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_intensedebate.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"16": 0, "21": 11, "22": 22, "23": 25, "29": 2, "34": 2, "35": 4, "36": 4, "37": 5, "38": 5, "39": 6, "40": 6, "46": 13, "51": 13, "52": 14, "53": 14, "54": 14, "55": 14, "56": 16, "57": 16, "58": 17, "59": 17, "60": 18, "61": 18, "67": 24, "71": 24, "77": 71}, "uri": "comments_helper_intensedebate.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_intensedebate.tmpl"}
 __M_END_METADATA
 """

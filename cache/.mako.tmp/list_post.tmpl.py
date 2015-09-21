@@ -1,13 +1,14 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.892754
+_modified_time = 1442872973.330817
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/list_post.tmpl'
-_template_uri = 'list_post.tmpl'
+_template_uri = u'list_post.tmpl'
 _source_encoding = 'utf-8'
 _exports = [u'content']
 
@@ -56,7 +57,7 @@ def render_content(context,**pageargs):
         title = context.get('title', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\n<article class="listpage">\n    <header>\n        <h1>')
-        __M_writer(unicode(title))
+        __M_writer(filters.html_escape(unicode(title)))
         __M_writer(u'</h1>\n    </header>\n')
         if posts:
             __M_writer(u'    <ul class="postlist">\n')
@@ -68,9 +69,9 @@ def render_content(context,**pageargs):
                 __M_writer(u'</a> <time class="listdate" datetime="')
                 __M_writer(unicode(post.formatted_date('webiso')))
                 __M_writer(u'" title="')
-                __M_writer(unicode(post.formatted_date(date_format)))
+                __M_writer(filters.html_escape(unicode(post.formatted_date(date_format))))
                 __M_writer(u'">')
-                __M_writer(unicode(post.formatted_date(date_format)))
+                __M_writer(filters.html_escape(unicode(post.formatted_date(date_format))))
                 __M_writer(u'</time></li>\n')
             __M_writer(u'    </ul>\n')
         else:
@@ -85,6 +86,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"26": 0, "37": 2, "42": 19, "48": 4, "58": 4, "59": 7, "60": 7, "61": 9, "62": 10, "63": 11, "64": 12, "65": 12, "66": 12, "67": 12, "68": 12, "69": 12, "70": 12, "71": 12, "72": 12, "73": 12, "74": 12, "75": 14, "76": 15, "77": 16, "78": 16, "79": 16, "80": 18, "86": 80}, "uri": "list_post.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/list_post.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"27": 0, "38": 2, "43": 19, "49": 4, "59": 4, "60": 7, "61": 7, "62": 9, "63": 10, "64": 11, "65": 12, "66": 12, "67": 12, "68": 12, "69": 12, "70": 12, "71": 12, "72": 12, "73": 12, "74": 12, "75": 12, "76": 14, "77": 15, "78": 16, "79": 16, "80": 16, "81": 18, "87": 81}, "uri": "list_post.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/list_post.tmpl"}
 __M_END_METADATA
 """

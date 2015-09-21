@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.931475
+_modified_time = 1442872973.302619
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/tags.tmpl'
 _template_uri = u'tags.tmpl'
@@ -64,7 +65,7 @@ def render_content(context,**pageargs):
         range = context.get('range', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\n<article class="tagindex">\n    <header>\n        <h1>')
-        __M_writer(unicode(title))
+        __M_writer(filters.html_escape(unicode(title)))
         __M_writer(u'</h1>\n    </header>\n')
         if cat_items:
             if items:
@@ -96,7 +97,7 @@ def render_content(context,**pageargs):
                     __M_writer(u'                <li><a class="reference listtitle" href="')
                     __M_writer(unicode(link))
                     __M_writer(u'">')
-                    __M_writer(unicode(text))
+                    __M_writer(filters.html_escape(unicode(text)))
                     __M_writer(u'</a></li>\n')
             __M_writer(u'        </ul>\n')
         __M_writer(u'</article>\n')
@@ -107,6 +108,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"26": 0, "41": 2, "46": 42, "52": 4, "66": 4, "67": 7, "68": 7, "69": 9, "70": 10, "71": 11, "72": 11, "73": 11, "74": 13, "75": 14, "76": 15, "77": 17, "78": 17, "79": 17, "80": 17, "81": 17, "82": 18, "83": 19, "84": 21, "85": 22, "86": 23, "87": 24, "88": 28, "89": 29, "90": 29, "91": 29, "92": 32, "93": 33, "94": 34, "95": 35, "96": 36, "97": 36, "98": 36, "99": 36, "100": 36, "101": 39, "102": 41, "108": 102}, "uri": "tags.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/tags.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"27": 0, "42": 2, "47": 42, "53": 4, "67": 4, "68": 7, "69": 7, "70": 9, "71": 10, "72": 11, "73": 11, "74": 11, "75": 13, "76": 14, "77": 15, "78": 17, "79": 17, "80": 17, "81": 17, "82": 17, "83": 18, "84": 19, "85": 21, "86": 22, "87": 23, "88": 24, "89": 28, "90": 29, "91": 29, "92": 29, "93": 32, "94": 33, "95": 34, "96": 35, "97": 36, "98": 36, "99": 36, "100": 36, "101": 36, "102": 39, "103": 41, "109": 103}, "uri": "tags.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/tags.tmpl"}
 __M_END_METADATA
 """

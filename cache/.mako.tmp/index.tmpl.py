@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.907061
+_modified_time = 1442872973.371701
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/index.tmpl'
 _template_uri = u'index.tmpl'
@@ -38,12 +39,14 @@ def render_body(context,**pageargs):
         helper = _mako_get_namespace(context, 'helper')
         parent = context.get('parent', UNDEFINED)
         date_format = context.get('date_format', UNDEFINED)
+        author_pages_generated = context.get('author_pages_generated', UNDEFINED)
         def content_header():
             return render_content_header(context._locals(__M_locals))
         posts = context.get('posts', UNDEFINED)
-        comments = _mako_get_namespace(context, 'comments')
+        _link = context.get('_link', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        comments = _mako_get_namespace(context, 'comments')
         site_has_comments = context.get('site_has_comments', UNDEFINED)
         index_teasers = context.get('index_teasers', UNDEFINED)
         index_file = context.get('index_file', UNDEFINED)
@@ -71,12 +74,14 @@ def render_content(context,**pageargs):
     try:
         date_format = context.get('date_format', UNDEFINED)
         helper = _mako_get_namespace(context, 'helper')
+        posts = context.get('posts', UNDEFINED)
         def content_header():
             return render_content_header(context)
-        posts = context.get('posts', UNDEFINED)
-        comments = _mako_get_namespace(context, 'comments')
+        author_pages_generated = context.get('author_pages_generated', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
         def content():
             return render_content(context)
+        comments = _mako_get_namespace(context, 'comments')
         site_has_comments = context.get('site_has_comments', UNDEFINED)
         index_teasers = context.get('index_teasers', UNDEFINED)
         __M_writer = context.writer()
@@ -93,16 +98,25 @@ def render_content(context,**pageargs):
             __M_writer(unicode(post.permalink()))
             __M_writer(u'" class="u-url">')
             __M_writer(filters.html_escape(unicode(post.title())))
-            __M_writer(u'</a></h1>\n        <div class="metadata">\n            <p class="byline author vcard"><span class="byline-name fn">')
-            __M_writer(unicode(post.author()))
-            __M_writer(u'</span></p>\n            <p class="dateline"><a href="')
+            __M_writer(u'</a></h1>\n        <div class="metadata">\n            <p class="byline author vcard"><span class="byline-name fn">\n')
+            if author_pages_generated:
+                __M_writer(u'                <a href="')
+                __M_writer(unicode(_link('author', post.author())))
+                __M_writer(u'">')
+                __M_writer(unicode(post.author()))
+                __M_writer(u'</a>\n')
+            else:
+                __M_writer(u'                ')
+                __M_writer(filters.html_escape(unicode(post.author())))
+                __M_writer(u'\n')
+            __M_writer(u'            </span></p>\n            <p class="dateline"><a href="')
             __M_writer(unicode(post.permalink()))
             __M_writer(u'" rel="bookmark"><time class="published dt-published" datetime="')
             __M_writer(unicode(post.formatted_date('webiso')))
             __M_writer(u'" title="')
-            __M_writer(unicode(post.formatted_date(date_format)))
+            __M_writer(filters.html_escape(unicode(post.formatted_date(date_format))))
             __M_writer(u'">')
-            __M_writer(unicode(post.formatted_date(date_format)))
+            __M_writer(filters.html_escape(unicode(post.formatted_date(date_format))))
             __M_writer(u'</time></a></p>\n')
             if not post.meta('nocomments') and site_has_comments:
                 __M_writer(u'                <p class="commentline">')
@@ -165,6 +179,6 @@ def render_content_header(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"133": 6, "143": 6, "144": 7, "145": 7, "146": 8, "147": 9, "148": 9, "149": 9, "22": 3, "25": 2, "155": 14, "31": 0, "166": 155, "51": 2, "52": 3, "53": 4, "58": 11, "63": 42, "69": 13, "83": 13, "88": 14, "89": 16, "90": 17, "91": 17, "92": 17, "93": 19, "94": 19, "95": 19, "96": 19, "97": 21, "98": 21, "99": 22, "100": 22, "101": 22, "102": 22, "103": 22, "104": 22, "105": 22, "106": 22, "107": 23, "108": 24, "109": 24, "110": 24, "111": 26, "112": 28, "113": 29, "114": 30, "115": 30, "116": 31, "117": 32, "118": 33, "119": 33, "120": 35, "121": 38, "122": 39, "123": 39, "124": 40, "125": 40, "126": 41, "127": 41}, "uri": "index.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/index.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"128": 36, "129": 36, "130": 37, "131": 38, "132": 39, "133": 39, "134": 41, "135": 44, "136": 45, "137": 45, "138": 46, "139": 46, "140": 47, "141": 47, "147": 6, "23": 3, "26": 2, "157": 6, "158": 7, "159": 7, "32": 0, "161": 9, "162": 9, "163": 9, "169": 14, "180": 169, "54": 2, "55": 3, "56": 4, "61": 11, "160": 8, "66": 48, "72": 13, "88": 13, "93": 14, "94": 16, "95": 17, "96": 17, "97": 17, "98": 19, "99": 19, "100": 19, "101": 19, "102": 22, "103": 23, "104": 23, "105": 23, "106": 23, "107": 23, "108": 24, "109": 25, "110": 25, "111": 25, "112": 27, "113": 28, "114": 28, "115": 28, "116": 28, "117": 28, "118": 28, "119": 28, "120": 28, "121": 29, "122": 30, "123": 30, "124": 30, "125": 32, "126": 34, "127": 35}, "uri": "index.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/index.tmpl"}
 __M_END_METADATA
 """

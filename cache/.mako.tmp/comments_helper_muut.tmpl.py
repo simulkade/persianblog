@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.785441
+_modified_time = 1442872973.159762
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_muut.tmpl'
 _template_uri = u'comments_helper_muut.tmpl'
@@ -65,6 +66,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"34": 3, "35": 4, "36": 4, "37": 4, "38": 4, "39": 4, "40": 4, "66": 60, "46": 7, "15": 0, "50": 7, "20": 2, "21": 5, "22": 8, "23": 13, "56": 11, "60": 11, "29": 3}, "uri": "comments_helper_muut.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_muut.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"67": 61, "35": 3, "36": 4, "37": 4, "38": 4, "39": 4, "40": 4, "41": 4, "47": 7, "16": 0, "51": 7, "21": 2, "22": 5, "23": 8, "24": 13, "57": 11, "61": 11, "30": 3}, "uri": "comments_helper_muut.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_muut.tmpl"}
 __M_END_METADATA
 """

@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.970969
+_modified_time = 1442872973.288486
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/listing.tmpl'
 _template_uri = u'listing.tmpl'
@@ -75,15 +76,15 @@ def render_content(context,**pageargs):
             __M_writer(u'<ul>\n')
             for name in folders:
                 __M_writer(u'    <li><a href="')
-                __M_writer(unicode(name))
+                __M_writer(filters.url_escape(unicode(name)))
                 __M_writer(u'"><i class="icon-folder-open"></i> ')
-                __M_writer(unicode(name))
+                __M_writer(filters.html_escape(unicode(name)))
                 __M_writer(u'</a>\n')
             for name in files:
                 __M_writer(u'    <li><a href="')
-                __M_writer(unicode(name))
+                __M_writer(filters.url_escape(unicode(name)))
                 __M_writer(u'.html"><i class="icon-file"></i> ')
-                __M_writer(unicode(name))
+                __M_writer(filters.html_escape(unicode(name)))
                 __M_writer(u'</a>\n')
             __M_writer(u'</ul>\n')
         if code:
@@ -103,6 +104,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 3, "28": 0, "44": 2, "45": 3, "50": 22, "56": 4, "71": 4, "72": 5, "73": 5, "74": 6, "75": 7, "76": 8, "77": 9, "78": 9, "79": 9, "80": 9, "81": 9, "82": 11, "83": 12, "84": 12, "85": 12, "86": 12, "87": 12, "88": 14, "89": 16, "90": 17, "91": 17, "92": 17, "93": 19, "94": 20, "95": 20, "96": 20, "97": 20, "98": 20, "104": 98}, "uri": "listing.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/listing.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"23": 3, "29": 0, "45": 2, "46": 3, "51": 22, "57": 4, "72": 4, "73": 5, "74": 5, "75": 6, "76": 7, "77": 8, "78": 9, "79": 9, "80": 9, "81": 9, "82": 9, "83": 11, "84": 12, "85": 12, "86": 12, "87": 12, "88": 12, "89": 14, "90": 16, "91": 17, "92": 17, "93": 17, "94": 19, "95": 20, "96": 20, "97": 20, "98": 20, "99": 20, "105": 99}, "uri": "listing.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/listing.tmpl"}
 __M_END_METADATA
 """

@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.838612
+_modified_time = 1442872973.213568
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_header.tmpl'
 _template_uri = u'base_header.tmpl'
@@ -57,14 +58,14 @@ def render_html_navigation_links(context):
         for url, text in navigation_links[lang]:
             if isinstance(url, tuple):
                 __M_writer(u'            <li> ')
-                __M_writer(unicode(text))
+                __M_writer(filters.html_escape(unicode(text)))
                 __M_writer(u'\n            <ul>\n')
                 for suburl, text in url:
                     if rel_link(permalink, suburl) == "#":
                         __M_writer(u'                    <li class="active"><a href="')
                         __M_writer(unicode(permalink))
                         __M_writer(u'">')
-                        __M_writer(unicode(text))
+                        __M_writer(filters.html_escape(unicode(text)))
                         __M_writer(u' <span class="sr-only">')
                         __M_writer(unicode(messages("(active)", lang)))
                         __M_writer(u'</span></a></li>\n')
@@ -72,7 +73,7 @@ def render_html_navigation_links(context):
                         __M_writer(u'                    <li><a href="')
                         __M_writer(unicode(suburl))
                         __M_writer(u'">')
-                        __M_writer(unicode(text))
+                        __M_writer(filters.html_escape(unicode(text)))
                         __M_writer(u'</a></li>\n')
                 __M_writer(u'            </ul>\n')
             else:
@@ -80,7 +81,7 @@ def render_html_navigation_links(context):
                     __M_writer(u'                <li class="active"><a href="')
                     __M_writer(unicode(permalink))
                     __M_writer(u'">')
-                    __M_writer(unicode(text))
+                    __M_writer(filters.html_escape(unicode(text)))
                     __M_writer(u' <span class="sr-only">')
                     __M_writer(unicode(messages("(active)", lang)))
                     __M_writer(u'</span></a></li>\n')
@@ -88,7 +89,7 @@ def render_html_navigation_links(context):
                     __M_writer(u'                <li><a href="')
                     __M_writer(unicode(url))
                     __M_writer(u'">')
-                    __M_writer(unicode(text))
+                    __M_writer(filters.html_escape(unicode(text)))
                     __M_writer(u'</a></li>\n')
         __M_writer(u'    ')
         __M_writer(unicode(template_hooks['menu']()))
@@ -170,18 +171,18 @@ def render_html_site_title(context):
         __M_writer(u'\n    <h1 id="brand"><a href="')
         __M_writer(unicode(abs_link(_link("root", None, lang))))
         __M_writer(u'" title="')
-        __M_writer(unicode(blog_title))
+        __M_writer(filters.html_escape(unicode(blog_title)))
         __M_writer(u'" rel="home">\n')
         if logo_url:
             __M_writer(u'        <img src="')
             __M_writer(unicode(logo_url))
             __M_writer(u'" alt="')
-            __M_writer(unicode(blog_title))
+            __M_writer(filters.html_escape(unicode(blog_title)))
             __M_writer(u'" id="logo">\n')
         __M_writer(u'\n')
         if show_blog_title:
             __M_writer(u'        <span id="blog-title">')
-            __M_writer(unicode(blog_title))
+            __M_writer(filters.html_escape(unicode(blog_title)))
             __M_writer(u'</span>\n')
         __M_writer(u'    </a></h1>\n')
         return ''
@@ -191,6 +192,6 @@ def render_html_site_title(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"22": 2, "25": 0, "32": 2, "33": 16, "34": 28, "35": 57, "36": 66, "42": 30, "56": 30, "57": 33, "58": 34, "59": 35, "60": 35, "61": 35, "62": 37, "63": 38, "64": 39, "65": 39, "66": 39, "67": 39, "68": 39, "69": 39, "70": 39, "71": 40, "72": 41, "73": 41, "74": 41, "75": 41, "76": 41, "77": 44, "78": 45, "79": 46, "80": 47, "81": 47, "82": 47, "83": 47, "84": 47, "85": 47, "86": 47, "87": 48, "88": 49, "89": 49, "90": 49, "91": 49, "92": 49, "93": 53, "94": 53, "95": 53, "96": 54, "97": 54, "103": 59, "113": 59, "114": 60, "115": 61, "116": 62, "117": 62, "118": 63, "119": 63, "125": 4, "139": 4, "140": 6, "141": 6, "142": 7, "143": 7, "144": 8, "145": 8, "146": 9, "147": 10, "148": 11, "149": 11, "150": 14, "151": 15, "152": 15, "158": 18, "170": 18, "171": 19, "172": 19, "173": 19, "174": 19, "175": 20, "176": 21, "177": 21, "178": 21, "179": 21, "180": 21, "181": 23, "182": 24, "183": 25, "184": 25, "185": 25, "186": 27, "192": 186}, "uri": "base_header.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_header.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"23": 2, "26": 0, "33": 2, "34": 16, "35": 28, "36": 57, "37": 66, "43": 30, "57": 30, "58": 33, "59": 34, "60": 35, "61": 35, "62": 35, "63": 37, "64": 38, "65": 39, "66": 39, "67": 39, "68": 39, "69": 39, "70": 39, "71": 39, "72": 40, "73": 41, "74": 41, "75": 41, "76": 41, "77": 41, "78": 44, "79": 45, "80": 46, "81": 47, "82": 47, "83": 47, "84": 47, "85": 47, "86": 47, "87": 47, "88": 48, "89": 49, "90": 49, "91": 49, "92": 49, "93": 49, "94": 53, "95": 53, "96": 53, "97": 54, "98": 54, "104": 59, "114": 59, "115": 60, "116": 61, "117": 62, "118": 62, "119": 63, "120": 63, "126": 4, "140": 4, "141": 6, "142": 6, "143": 7, "144": 7, "145": 8, "146": 8, "147": 9, "148": 10, "149": 11, "150": 11, "151": 14, "152": 15, "153": 15, "159": 18, "171": 18, "172": 19, "173": 19, "174": 19, "175": 19, "176": 20, "177": 21, "178": 21, "179": 21, "180": 21, "181": 21, "182": 23, "183": 24, "184": 25, "185": 25, "186": 25, "187": 27, "193": 187}, "uri": "base_header.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_header.tmpl"}
 __M_END_METADATA
 """

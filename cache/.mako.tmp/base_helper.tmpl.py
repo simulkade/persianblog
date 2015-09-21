@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.817922
+_modified_time = 1442872973.191878
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_helper.tmpl'
 _template_uri = u'base_helper.tmpl'
@@ -57,29 +58,30 @@ def render_html_translations(context):
 def render_html_headstart(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        lang = context.get('lang', UNDEFINED)
-        extra_head_data = context.get('extra_head_data', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
         prevlink = context.get('prevlink', UNDEFINED)
-        description = context.get('description', UNDEFINED)
+        use_cdn = context.get('use_cdn', UNDEFINED)
+        mathjax_config = context.get('mathjax_config', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        comment_system = context.get('comment_system', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
+        use_open_graph = context.get('use_open_graph', UNDEFINED)
         title = context.get('title', UNDEFINED)
         url_replacer = context.get('url_replacer', UNDEFINED)
         is_rtl = context.get('is_rtl', UNDEFINED)
-        use_cdn = context.get('use_cdn', UNDEFINED)
-        mathjax_config = context.get('mathjax_config', UNDEFINED)
-        nextlink = context.get('nextlink', UNDEFINED)
-        striphtml = context.get('striphtml', UNDEFINED)
-        favicons = context.get('favicons', UNDEFINED)
+        use_base_tag = context.get('use_base_tag', UNDEFINED)
         comment_system_id = context.get('comment_system_id', UNDEFINED)
-        use_open_graph = context.get('use_open_graph', UNDEFINED)
+        extra_head_data = context.get('extra_head_data', UNDEFINED)
+        description = context.get('description', UNDEFINED)
+        theme_color = context.get('theme_color', UNDEFINED)
+        nextlink = context.get('nextlink', UNDEFINED)
         def html_feedlinks():
             return render_html_feedlinks(context)
-        comment_system = context.get('comment_system', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
-        blog_title = context.get('blog_title', UNDEFINED)
-        twitter_card = context.get('twitter_card', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
+        favicons = context.get('favicons', UNDEFINED)
         def html_stylesheets():
             return render_html_stylesheets(context)
+        twitter_card = context.get('twitter_card', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(u'\n<!DOCTYPE html>\n<html ')
         __M_writer(u"prefix='")
@@ -95,24 +97,34 @@ def render_html_headstart(context):
         __M_writer(u'lang="')
         __M_writer(unicode(lang))
         __M_writer(u'">\n<head>\n    <meta charset="utf-8">\n')
-        if description:
-            __M_writer(u'    <meta name="description" content="')
-            __M_writer(unicode(description))
-            __M_writer(u'">\n')
-        __M_writer(u'    <meta name="viewport" content="width=device-width">\n    <title>')
-        __M_writer(striphtml(unicode(title)))
-        __M_writer(u' | ')
-        __M_writer(striphtml(unicode(blog_title)))
-        __M_writer(u'</title>\n\n    ')
-        __M_writer(unicode(html_stylesheets()))
-        __M_writer(u'\n    ')
-        __M_writer(unicode(html_feedlinks()))
-        __M_writer(u'\n')
-        if permalink:
-            __M_writer(u'      <link rel="canonical" href="')
+        if use_base_tag:
+            __M_writer(u'    <base href="')
             __M_writer(unicode(abs_link(permalink)))
             __M_writer(u'">\n')
-        __M_writer(u'\n')
+        if description:
+            __M_writer(u'    <meta name="description" content="')
+            __M_writer(filters.html_escape(unicode(description)))
+            __M_writer(u'">\n')
+        __M_writer(u'    <meta name="viewport" content="width=device-width">\n')
+        if title == blog_title:
+            __M_writer(u'        <title>')
+            __M_writer(filters.html_escape(unicode(blog_title)))
+            __M_writer(u'</title>\n')
+        else:
+            __M_writer(u'        <title>')
+            __M_writer(filters.html_escape(unicode(title)))
+            __M_writer(u' | ')
+            __M_writer(filters.html_escape(unicode(blog_title)))
+            __M_writer(u'</title>\n')
+        __M_writer(u'\n    ')
+        __M_writer(unicode(html_stylesheets()))
+        __M_writer(u'\n    <meta content="')
+        __M_writer(unicode(theme_color))
+        __M_writer(u'" name="theme-color">\n    ')
+        __M_writer(unicode(html_feedlinks()))
+        __M_writer(u'\n    <link rel="canonical" href="')
+        __M_writer(unicode(abs_link(permalink)))
+        __M_writer(u'">\n\n')
         if favicons:
             for name, file, size in favicons:
                 __M_writer(u'            <link rel="')
@@ -238,6 +250,6 @@ def render_html_feedlinks(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"15": 0, "20": 2, "21": 61, "22": 65, "23": 86, "24": 109, "25": 119, "31": 111, "41": 111, "42": 113, "43": 114, "44": 115, "45": 115, "46": 115, "47": 115, "48": 115, "49": 115, "50": 115, "51": 118, "57": 3, "84": 3, "85": 6, "86": 7, "87": 8, "88": 10, "89": 11, "90": 13, "91": 14, "92": 15, "93": 17, "94": 18, "95": 21, "96": 21, "97": 21, "98": 24, "99": 25, "100": 25, "101": 25, "102": 27, "103": 28, "104": 28, "105": 28, "106": 28, "107": 30, "108": 30, "109": 31, "110": 31, "111": 32, "112": 33, "113": 33, "114": 33, "115": 35, "116": 36, "117": 37, "118": 38, "119": 38, "120": 38, "121": 38, "122": 38, "123": 38, "124": 38, "125": 41, "126": 42, "127": 43, "128": 43, "129": 43, "130": 45, "131": 46, "132": 47, "133": 47, "134": 47, "135": 49, "136": 50, "137": 50, "138": 50, "139": 52, "140": 53, "141": 53, "142": 54, "143": 55, "144": 56, "145": 57, "146": 57, "147": 57, "148": 59, "149": 60, "150": 60, "156": 63, "161": 63, "162": 64, "163": 64, "169": 67, "177": 67, "178": 68, "179": 69, "180": 70, "181": 71, "182": 72, "183": 74, "184": 75, "185": 78, "186": 79, "187": 82, "188": 83, "194": 88, "205": 88, "206": 89, "207": 90, "208": 90, "209": 90, "210": 91, "211": 92, "212": 93, "213": 94, "214": 94, "215": 94, "216": 94, "217": 94, "218": 96, "219": 97, "220": 97, "221": 97, "222": 100, "223": 101, "224": 102, "225": 103, "226": 103, "227": 103, "228": 103, "229": 103, "230": 105, "231": 106, "232": 106, "233": 106, "239": 233}, "uri": "base_helper.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_helper.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"16": 0, "21": 2, "22": 67, "23": 71, "24": 92, "25": 115, "26": 125, "32": 117, "42": 117, "43": 119, "44": 120, "45": 121, "46": 121, "47": 121, "48": 121, "49": 121, "50": 121, "51": 121, "52": 124, "58": 3, "86": 3, "87": 6, "88": 7, "89": 8, "90": 10, "91": 11, "92": 13, "93": 14, "94": 15, "95": 17, "96": 18, "97": 21, "98": 21, "99": 21, "100": 24, "101": 25, "102": 25, "103": 25, "104": 27, "105": 28, "106": 28, "107": 28, "108": 30, "109": 31, "110": 32, "111": 32, "112": 32, "113": 33, "114": 34, "115": 34, "116": 34, "117": 34, "118": 34, "119": 36, "120": 37, "121": 37, "122": 38, "123": 38, "124": 39, "125": 39, "126": 40, "127": 40, "128": 42, "129": 43, "130": 44, "131": 44, "132": 44, "133": 44, "134": 44, "135": 44, "136": 44, "137": 47, "138": 48, "139": 49, "140": 49, "141": 49, "142": 51, "143": 52, "144": 53, "145": 53, "146": 53, "147": 55, "148": 56, "149": 56, "150": 56, "151": 58, "152": 59, "153": 59, "154": 60, "155": 61, "156": 62, "157": 63, "158": 63, "159": 63, "160": 65, "161": 66, "162": 66, "168": 69, "173": 69, "174": 70, "175": 70, "181": 73, "189": 73, "190": 74, "191": 75, "192": 76, "193": 77, "194": 78, "195": 80, "196": 81, "197": 84, "198": 85, "199": 88, "200": 89, "206": 94, "217": 94, "218": 95, "219": 96, "220": 96, "221": 96, "222": 97, "223": 98, "224": 99, "225": 100, "226": 100, "227": 100, "228": 100, "229": 100, "230": 102, "231": 103, "232": 103, "233": 103, "234": 106, "235": 107, "236": 108, "237": 109, "238": 109, "239": 109, "240": 109, "241": 109, "242": 111, "243": 112, "244": 112, "245": 112, "251": 245}, "uri": "base_helper.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_helper.tmpl"}
 __M_END_METADATA
 """

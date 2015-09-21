@@ -1,10 +1,11 @@
 # -*- coding:utf-8 -*-
 from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
+STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1440005109.788881
+_modified_time = 1442872973.163149
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_googleplus.tmpl'
 _template_uri = u'comments_helper_googleplus.tmpl'
@@ -61,6 +62,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"source_encoding": "utf-8", "line_map": {"32": 2, "33": 5, "34": 5, "40": 11, "44": 11, "45": 12, "46": 12, "15": 0, "20": 9, "21": 14, "22": 17, "56": 16, "52": 16, "28": 2, "62": 56}, "uri": "comments_helper_googleplus.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_googleplus.tmpl"}
+{"source_encoding": "utf-8", "line_map": {"33": 2, "34": 5, "35": 5, "41": 11, "45": 11, "46": 12, "47": 12, "16": 0, "21": 9, "22": 14, "23": 17, "57": 16, "63": 57, "29": 2, "53": 16}, "uri": "comments_helper_googleplus.tmpl", "filename": "/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/comments_helper_googleplus.tmpl"}
 __M_END_METADATA
 """
