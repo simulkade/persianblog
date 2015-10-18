@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1442872973.371701
+_modified_time = 1445194738.886573
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/index.tmpl'
 _template_uri = u'index.tmpl'
@@ -103,7 +103,7 @@ def render_content(context,**pageargs):
                 __M_writer(u'                <a href="')
                 __M_writer(unicode(_link('author', post.author())))
                 __M_writer(u'">')
-                __M_writer(unicode(post.author()))
+                __M_writer(filters.html_escape(unicode(post.author())))
                 __M_writer(u'</a>\n')
             else:
                 __M_writer(u'                ')

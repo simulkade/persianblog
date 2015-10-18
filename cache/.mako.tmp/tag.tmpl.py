@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1442872973.31676
+_modified_time = 1445194738.719876
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/tag.tmpl'
 _template_uri = u'tag.tmpl'
@@ -87,7 +87,7 @@ def render_content(context,**pageargs):
         __M_writer(u'</h1>\n')
         if description:
             __M_writer(u'        <p>')
-            __M_writer(filters.html_escape(unicode(description)))
+            __M_writer(unicode(description))
             __M_writer(u'</p>\n')
         if subcategories:
             __M_writer(u'        ')

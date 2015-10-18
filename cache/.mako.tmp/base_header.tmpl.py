@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1442872973.213568
+_modified_time = 1445194738.669454
 _enable_loop = True
 _template_filename = u'/usr/local/lib/python2.7/dist-packages/nikola/data/themes/base/templates/base_header.tmpl'
 _template_uri = u'base_header.tmpl'
@@ -58,14 +58,14 @@ def render_html_navigation_links(context):
         for url, text in navigation_links[lang]:
             if isinstance(url, tuple):
                 __M_writer(u'            <li> ')
-                __M_writer(filters.html_escape(unicode(text)))
+                __M_writer(unicode(text))
                 __M_writer(u'\n            <ul>\n')
                 for suburl, text in url:
                     if rel_link(permalink, suburl) == "#":
                         __M_writer(u'                    <li class="active"><a href="')
                         __M_writer(unicode(permalink))
                         __M_writer(u'">')
-                        __M_writer(filters.html_escape(unicode(text)))
+                        __M_writer(unicode(text))
                         __M_writer(u' <span class="sr-only">')
                         __M_writer(unicode(messages("(active)", lang)))
                         __M_writer(u'</span></a></li>\n')
@@ -73,7 +73,7 @@ def render_html_navigation_links(context):
                         __M_writer(u'                    <li><a href="')
                         __M_writer(unicode(suburl))
                         __M_writer(u'">')
-                        __M_writer(filters.html_escape(unicode(text)))
+                        __M_writer(unicode(text))
                         __M_writer(u'</a></li>\n')
                 __M_writer(u'            </ul>\n')
             else:
@@ -81,7 +81,7 @@ def render_html_navigation_links(context):
                     __M_writer(u'                <li class="active"><a href="')
                     __M_writer(unicode(permalink))
                     __M_writer(u'">')
-                    __M_writer(filters.html_escape(unicode(text)))
+                    __M_writer(unicode(text))
                     __M_writer(u' <span class="sr-only">')
                     __M_writer(unicode(messages("(active)", lang)))
                     __M_writer(u'</span></a></li>\n')
@@ -89,7 +89,7 @@ def render_html_navigation_links(context):
                     __M_writer(u'                <li><a href="')
                     __M_writer(unicode(url))
                     __M_writer(u'">')
-                    __M_writer(filters.html_escape(unicode(text)))
+                    __M_writer(unicode(text))
                     __M_writer(u'</a></li>\n')
         __M_writer(u'    ')
         __M_writer(unicode(template_hooks['menu']()))
