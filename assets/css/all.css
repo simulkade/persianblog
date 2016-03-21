@@ -336,8 +336,10 @@ pre.code .c { color: #408080; font-style: italic } /* Comment */
 pre.code .err { border: 1px solid #FF0000 } /* Error */
 pre.code .k { color: #008000; font-weight: bold } /* Keyword */
 pre.code .o { color: #666666 } /* Operator */
+pre.code .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 pre.code .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 pre.code .cp { color: #BC7A00 } /* Comment.Preproc */
+pre.code .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 pre.code .c1 { color: #408080; font-style: italic } /* Comment.Single */
 pre.code .cs { color: #408080; font-style: italic } /* Comment.Special */
 pre.code .gd { color: #A00000 } /* Generic.Deleted */
@@ -398,7 +400,7 @@ table.codetable { width: 100%;} td.linenos {text-align: right; width: 4em;}
 @charset "UTF-8";
 
 /*
-	Copyright © 2014-2015 Daniel Aleksandersen and others.
+	Copyright © 2014-2016 Daniel Aleksandersen and others.
 
 	Permission is hereby granted, free of charge, to any
 	person obtaining a copy of this software and associated
@@ -517,7 +519,7 @@ body {
 }
 .metadata p:before,
 .postpromonav .tags li:before,
-.postlist .listdate:before {
+.postlist .listdate:after {
 	content: " — ";
 }
 .postlist li {
