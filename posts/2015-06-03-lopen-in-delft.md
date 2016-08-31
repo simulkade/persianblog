@@ -9,6 +9,6 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPdktxd1lNUjk2R0E" />
+![delft](/20150603_delft_small.jpg)
 
 کلیسای در حال تعمیر شبیه سکوی پرتاب موشک شده. خیال کن هلندی‌های سکولار خواسته باشند کلیسا را به صاحبش پس بدهند.

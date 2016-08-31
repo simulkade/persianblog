@@ -9,5 +9,6 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPWFViYjIzQ2lJWVE" />
+![delft afternoon](/20150408_middag_small.jpg)
 
+دانشگاه نزدیک آولا. بهار دلفت تازه دارد از راه می‌رسد.

@@ -9,7 +9,7 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPVENvU3dBR2l4aEk" />
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPaTFkRjZFOC16X1E" />
+![germany](/20150717_205832585_HDR_small.jpg)
+![germany](/20150717_205839760_HDR_small.jpg)
 
 خانه‌هایی فانتزی در ساحل راین. روز آخر سفر و اوج خستگی بعد از یک روز پیاده‌روی در گرمای سی و چهار درجه که برای اروپای غربی کمی غریب است. بستنی خوبی هم خوردیم پرملات و خوش‌مزه، لطف ایرانی بستنی‌فروش بامرام اهل دوسلدرف. روز خوشی بود.

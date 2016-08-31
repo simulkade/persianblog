@@ -9,6 +9,6 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPVU1WZ2VZal9SLUk" />
+![delft](/20150612_delft_small.jpg)
 
 گل نیلوفر آبی. یعنی نیلوفری که در آب می‌روید. دنبال رنگ آبی‌اش می‌گردم که هنوز پیدا نکرده‌ام. بیشترشان سفید و زردند و تک و توکی صورتی.

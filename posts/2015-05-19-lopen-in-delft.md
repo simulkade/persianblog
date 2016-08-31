@@ -9,5 +9,5 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPVF8xMjMwd3MtbTQ" />
+![delft](/20150519_delft_small.jpg)
 
