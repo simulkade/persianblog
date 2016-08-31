@@ -9,7 +9,7 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPWkxsM1pVSE15Mnc" />
+![delft](/20150608_delft_small.jpg)
 
 Never stop dreaming!
 می‌تواند شعار شیرازی‌ها باشد.

@@ -9,6 +9,6 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPd1JXZTNlSjItRzQ" />
+![delft](/20150528_delft_small.jpg)
 
 میز کارم. ممعمولا از اینی که می‌بینید نامرتب‌تر است. پیاده‌روی برای برگشتن به خانه از همین‌جا شروع می‌شود.

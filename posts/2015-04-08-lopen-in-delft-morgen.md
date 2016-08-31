@@ -9,4 +9,6 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPTnEyOFlDbVI1Znc" />
+![delft morning](/20150408_delft_morgen_small.jpg)
+
+هوای مه گرفته گاهی بوی خوبی می‌دهد اگر آلودگی نباشد.

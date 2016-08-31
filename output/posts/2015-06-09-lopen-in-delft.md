@@ -9,7 +9,7 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPdi1uMHlkR1ZpcFk" />
+![delft](/20150609_delft_small.jpg)
 
 از این جاده‌های کوچک خوشم می‌آید. خیلی بهتر بود اگر سمت چپ این مسیر به جای آن ساختمان قهوه‌ای، درخت و بوته داشت.
 

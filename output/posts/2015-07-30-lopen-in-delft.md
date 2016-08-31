@@ -9,10 +9,10 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPN0hROEVVRXc3dVE" />
+![delft](/20150730_090357574_small.jpg)
 
 [اولین عکس وبلاگ](http://persian.simulkade.com/posts/2015-04-08-morgen-lopen-in-delft.html) را در یک صبح سرد و مه‌گرفته زمستانی تقریباَ از همین زاویه گرفتم. این بالایی را گرفتم برای مقایسه.
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPNGtSN2lyZl9kZTA" />
+![delft](/20150730_195122174_small.jpg)
 
 کانال پوشیده از جلبک. فکر کنم از روی این پل قبلاَ هم عکس گذاشته بودم. دارم آرام‌آرام تکراری می‌شوم.

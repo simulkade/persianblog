@@ -9,6 +9,6 @@
 .. type: text
 -->
 
-<img src="http://googledrive.com/host/0B8OOfC6oWXEPdkdqYlIzSTc5Wk0" />
+![delft](/20150521_delft_small.jpg)
 
 بیست می جا افتاد. دوربین همراهم نبود.
