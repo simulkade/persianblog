@@ -18,7 +18,7 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "عین‌ الف‌ الف"  # (translatable)
-BLOG_TITLE = "بابای آیدا"  # (translatable)
+BLOG_TITLE = "بابای آیدا و آیدین"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link
 SITE_URL = "http://persian.simulkade.com/"

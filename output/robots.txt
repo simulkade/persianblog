@@ -1,4 +1,0 @@
-Sitemap: http://persian.simulkade.com/sitemapindex.xml
-
-User-Agent: *
-Host: persian.simulkade.com
