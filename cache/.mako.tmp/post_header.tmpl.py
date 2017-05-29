@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1495964841.1084313
+_modified_time = 1496092407.847999
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/post_header.tmpl'
 _template_uri = 'post_header.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_title', 'html_translations', 'html_post_header', 'html_sourcelink']
+_exports = ['html_post_header', 'html_translations', 'html_sourcelink', 'html_title']
 
 
 def _mako_get_namespace(context, name):
@@ -20,11 +20,11 @@ def _mako_get_namespace(context, name):
         _mako_generate_namespaces(context)
         return context.namespaces[(__name__, name)]
 def _mako_generate_namespaces(context):
-    ns = runtime.TemplateNamespace('comments', context._clean_inheritance_tokens(), templateuri='comments_helper.tmpl', callables=None,  calling_uri=_template_uri)
-    context.namespaces[(__name__, 'comments')] = ns
-
     ns = runtime.TemplateNamespace('helper', context._clean_inheritance_tokens(), templateuri='post_helper.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'helper')] = ns
+
+    ns = runtime.TemplateNamespace('comments', context._clean_inheritance_tokens(), templateuri='comments_helper.tmpl', callables=None,  calling_uri=_template_uri)
+    context.namespaces[(__name__, 'comments')] = ns
 
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
@@ -42,63 +42,17 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_html_title(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        post = context.get('post', UNDEFINED)
-        title = context.get('title', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if title and not post.meta('hidetitle'):
-            __M_writer('    <h1 class="post-title p-name entry-title" itemprop="headline name"><a href="')
-            __M_writer(str(post.permalink()))
-            __M_writer('" class="u-url">')
-            __M_writer(filters.html_escape(str(post.title())))
-            __M_writer('</a></h1>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_html_translations(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        translations = context.get('translations', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if len(post.translated_to) > 1:
-            __M_writer('        <div class="metadata posttranslations translations">\n            <h3 class="posttranslations-intro">')
-            __M_writer(str(messages("Also available in:")))
-            __M_writer('</h3>\n')
-            for langname in translations.keys():
-                if langname != lang and post.is_translation_available(langname):
-                    __M_writer('                <p><a href="')
-                    __M_writer(str(post.permalink(langname)))
-                    __M_writer('" rel="alternate" hreflang="')
-                    __M_writer(str(langname))
-                    __M_writer('">')
-                    __M_writer(str(messages("LANGUAGE", langname)))
-                    __M_writer('</a></p>\n')
-            __M_writer('        </div>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_post_header(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        comments = _mako_get_namespace(context, 'comments')
         site_has_comments = context.get('site_has_comments', UNDEFINED)
-        def html_title():
-            return render_html_title(context)
+        comments = _mako_get_namespace(context, 'comments')
+        date_format = context.get('date_format', UNDEFINED)
+        post = context.get('post', UNDEFINED)
         def html_translations(post):
             return render_html_translations(context,post)
-        post = context.get('post', UNDEFINED)
-        date_format = context.get('date_format', UNDEFINED)
+        def html_title():
+            return render_html_title(context)
         __M_writer = context.writer()
         __M_writer('\n    <header>\n        ')
         __M_writer(str(html_title()))
@@ -129,12 +83,40 @@ def render_html_post_header(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_translations(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        len = context.get('len', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if len(post.translated_to) > 1:
+            __M_writer('        <div class="metadata posttranslations translations">\n            <h3 class="posttranslations-intro">')
+            __M_writer(str(messages("Also available in:")))
+            __M_writer('</h3>\n')
+            for langname in translations.keys():
+                if langname != lang and post.is_translation_available(langname):
+                    __M_writer('                <p><a href="')
+                    __M_writer(str(post.permalink(langname)))
+                    __M_writer('" rel="alternate" hreflang="')
+                    __M_writer(str(langname))
+                    __M_writer('">')
+                    __M_writer(str(messages("LANGUAGE", langname)))
+                    __M_writer('</a></p>\n')
+            __M_writer('        </div>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_html_sourcelink(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        messages = context.get('messages', UNDEFINED)
-        post = context.get('post', UNDEFINED)
         show_sourcelink = context.get('show_sourcelink', UNDEFINED)
+        post = context.get('post', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if show_sourcelink:
@@ -148,8 +130,26 @@ def render_html_sourcelink(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_title(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        post = context.get('post', UNDEFINED)
+        title = context.get('title', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if title and not post.meta('hidetitle'):
+            __M_writer('    <h1 class="post-title p-name entry-title" itemprop="headline name"><a href="')
+            __M_writer(str(post.permalink()))
+            __M_writer('" class="u-url">')
+            __M_writer(filters.html_escape(str(post.title())))
+            __M_writer('</a></h1>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"line_map": {"132": 24, "139": 24, "140": 25, "141": 26, "142": 26, "143": 26, "144": 26, "145": 26, "23": 3, "26": 2, "29": 0, "34": 2, "35": 3, "36": 9, "37": 22, "38": 28, "39": 45, "45": 5, "51": 5, "52": 6, "53": 7, "54": 7, "55": 7, "56": 7, "57": 7, "151": 145, "63": 11, "71": 11, "72": 12, "73": 13, "74": 14, "75": 14, "76": 15, "77": 16, "78": 17, "79": 17, "80": 17, "81": 17, "82": 17, "83": 17, "84": 17, "85": 20, "91": 30, "103": 30, "104": 32, "105": 32, "106": 34, "107": 34, "108": 35, "109": 35, "110": 35, "111": 35, "112": 35, "113": 35, "114": 35, "115": 35, "116": 36, "117": 37, "118": 37, "119": 37, "120": 39, "121": 40, "122": 40, "123": 40, "124": 42, "125": 43, "126": 43}, "filename": "themes/lanyon/templates/post_header.tmpl", "source_encoding": "utf-8", "uri": "post_header.tmpl"}
+{"line_map": {"133": 5, "139": 5, "140": 6, "141": 7, "142": 7, "143": 7, "144": 7, "145": 7, "23": 2, "151": 145, "26": 3, "29": 0, "34": 2, "35": 3, "36": 9, "37": 22, "38": 28, "39": 45, "45": 30, "57": 30, "58": 32, "59": 32, "60": 34, "61": 34, "62": 35, "63": 35, "64": 35, "65": 35, "66": 35, "67": 35, "68": 35, "69": 35, "70": 36, "71": 37, "72": 37, "73": 37, "74": 39, "75": 40, "76": 40, "77": 40, "78": 42, "79": 43, "80": 43, "86": 11, "94": 11, "95": 12, "96": 13, "97": 14, "98": 14, "99": 15, "100": 16, "101": 17, "102": 17, "103": 17, "104": 17, "105": 17, "106": 17, "107": 17, "108": 20, "114": 24, "121": 24, "122": 25, "123": 26, "124": 26, "125": 26, "126": 26, "127": 26}, "uri": "post_header.tmpl", "source_encoding": "utf-8", "filename": "themes/lanyon/templates/post_header.tmpl"}
 __M_END_METADATA
 """
