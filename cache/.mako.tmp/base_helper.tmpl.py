@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1497811476.3439867
+_modified_time = 1532602037.5935972
 _enable_loop = True
 _template_filename = 'themes/lanyon/templates/base_helper.tmpl'
 _template_uri = 'base_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_translations', 'html_headstart', 'html_stylesheets', 'late_load_js', 'html_feedlinks']
+_exports = ['html_headstart', 'late_load_js', 'html_stylesheets', 'html_feedlinks', 'html_translations']
 
 
 def render_body(context,**pageargs):
@@ -29,57 +29,32 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_html_translations(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        abs_link = context.get('abs_link', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n    <ul class="translations">\n')
-        for langname in translations.keys():
-            if langname != lang:
-                __M_writer('            <li><a href="')
-                __M_writer(str(abs_link(_link("root", None, langname))))
-                __M_writer('" rel="alternate" hreflang="')
-                __M_writer(str(langname))
-                __M_writer('">')
-                __M_writer(str(messages("LANGUAGE", langname)))
-                __M_writer('</a></li>\n')
-        __M_writer('    </ul>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_headstart(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        lang = context.get('lang', UNDEFINED)
-        nextlink = context.get('nextlink', UNDEFINED)
-        use_open_graph = context.get('use_open_graph', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
-        extra_head_data = context.get('extra_head_data', UNDEFINED)
         title = context.get('title', UNDEFINED)
-        favicons = context.get('favicons', UNDEFINED)
-        is_rtl = context.get('is_rtl', UNDEFINED)
-        description = context.get('description', UNDEFINED)
-        comment_system = context.get('comment_system', UNDEFINED)
         mathjax_config = context.get('mathjax_config', UNDEFINED)
-        prevlink = context.get('prevlink', UNDEFINED)
+        use_cdn = context.get('use_cdn', UNDEFINED)
         url_replacer = context.get('url_replacer', UNDEFINED)
-        def html_feedlinks():
-            return render_html_feedlinks(context)
-        comment_system_id = context.get('comment_system_id', UNDEFINED)
-        twitter_card = context.get('twitter_card', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
+        comment_system = context.get('comment_system', UNDEFINED)
+        striphtml = context.get('striphtml', UNDEFINED)
+        favicons = context.get('favicons', UNDEFINED)
+        description = context.get('description', UNDEFINED)
         def html_stylesheets():
             return render_html_stylesheets(context)
-        use_cdn = context.get('use_cdn', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        extra_head_data = context.get('extra_head_data', UNDEFINED)
+        def html_feedlinks():
+            return render_html_feedlinks(context)
+        nextlink = context.get('nextlink', UNDEFINED)
         blog_title = context.get('blog_title', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
-        striphtml = context.get('striphtml', UNDEFINED)
+        twitter_card = context.get('twitter_card', UNDEFINED)
+        use_open_graph = context.get('use_open_graph', UNDEFINED)
+        prevlink = context.get('prevlink', UNDEFINED)
+        comment_system_id = context.get('comment_system_id', UNDEFINED)
+        is_rtl = context.get('is_rtl', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<!DOCTYPE html>\n<html ')
         __M_writer("prefix='")
@@ -153,31 +128,12 @@ def render_html_headstart(context):
         context.caller_stack._pop_frame()
 
 
-def render_html_stylesheets(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        has_custom_css = context.get('has_custom_css', UNDEFINED)
-        use_bundles = context.get('use_bundles', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if use_bundles:
-            __M_writer('        <link href="/assets/css/all.css" rel="stylesheet" type="text/css">\n')
-        else:
-            __M_writer('        <link href="/assets/css/rst.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/poole.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/lanyon.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/code.css" rel="stylesheet" type="text/css">\n')
-            if has_custom_css:
-                __M_writer('            <link href="/assets/css/custom.css" rel="stylesheet" type="text/css">\n')
-        __M_writer('    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_late_load_js(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         use_cdn = context.get('use_cdn', UNDEFINED)
-        social_buttons_code = context.get('social_buttons_code', UNDEFINED)
         use_bundles = context.get('use_bundles', UNDEFINED)
+        social_buttons_code = context.get('social_buttons_code', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_bundles:
@@ -199,15 +155,34 @@ def render_late_load_js(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_stylesheets(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        has_custom_css = context.get('has_custom_css', UNDEFINED)
+        use_bundles = context.get('use_bundles', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if use_bundles:
+            __M_writer('        <link href="/assets/css/all.css" rel="stylesheet" type="text/css">\n')
+        else:
+            __M_writer('        <link href="/assets/css/rst.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/poole.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/lanyon.css" rel="stylesheet" type="text/css">\n        <link href="/assets/css/code.css" rel="stylesheet" type="text/css">\n')
+            if has_custom_css:
+                __M_writer('            <link href="/assets/css/custom.css" rel="stylesheet" type="text/css">\n')
+        __M_writer('    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_html_feedlinks(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         generate_rss = context.get('generate_rss', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
-        generate_atom = context.get('generate_atom', UNDEFINED)
         rss_link = context.get('rss_link', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
+        generate_atom = context.get('generate_atom', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if rss_link:
@@ -243,8 +218,33 @@ def render_html_feedlinks(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_translations(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        abs_link = context.get('abs_link', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n    <ul class="translations">\n')
+        for langname in translations.keys():
+            if langname != lang:
+                __M_writer('            <li><a href="')
+                __M_writer(str(abs_link(_link("root", None, langname))))
+                __M_writer('" rel="alternate" hreflang="')
+                __M_writer(str(langname))
+                __M_writer('">')
+                __M_writer(str(messages("LANGUAGE", langname)))
+                __M_writer('</a></li>\n')
+        __M_writer('    </ul>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 """
 __M_BEGIN_METADATA
-{"line_map": {"16": 0, "21": 2, "22": 61, "23": 81, "24": 96, "25": 119, "26": 129, "32": 121, "41": 121, "42": 123, "43": 124, "44": 125, "45": 125, "46": 125, "47": 125, "48": 125, "49": 125, "50": 125, "51": 128, "57": 3, "84": 3, "85": 6, "86": 7, "87": 8, "88": 10, "89": 11, "90": 13, "91": 14, "92": 15, "93": 17, "94": 18, "95": 21, "96": 21, "97": 21, "98": 24, "99": 25, "100": 25, "101": 25, "102": 27, "103": 28, "104": 28, "105": 28, "106": 28, "107": 30, "108": 30, "109": 31, "110": 31, "111": 32, "112": 33, "113": 33, "114": 33, "115": 35, "116": 36, "117": 37, "118": 38, "119": 38, "120": 38, "121": 38, "122": 38, "123": 38, "124": 38, "125": 41, "126": 42, "127": 43, "128": 43, "129": 43, "130": 45, "131": 46, "132": 47, "133": 47, "134": 47, "135": 49, "136": 50, "137": 50, "138": 50, "139": 52, "140": 53, "141": 53, "142": 54, "143": 55, "144": 56, "145": 57, "146": 57, "147": 57, "148": 59, "149": 60, "150": 60, "156": 83, "162": 83, "163": 84, "164": 85, "165": 86, "166": 87, "167": 91, "168": 92, "169": 95, "175": 63, "182": 63, "183": 64, "184": 65, "185": 66, "186": 68, "187": 69, "188": 71, "189": 72, "190": 73, "191": 74, "192": 75, "193": 77, "194": 80, "195": 80, "196": 80, "202": 98, "212": 98, "213": 99, "214": 100, "215": 100, "216": 100, "217": 101, "218": 102, "219": 103, "220": 104, "221": 104, "222": 104, "223": 104, "224": 104, "225": 106, "226": 107, "227": 107, "228": 107, "229": 110, "230": 111, "231": 112, "232": 113, "233": 113, "234": 113, "235": 113, "236": 113, "237": 115, "238": 116, "239": 116, "240": 116, "246": 240}, "source_encoding": "utf-8", "uri": "base_helper.tmpl", "filename": "themes/lanyon/templates/base_helper.tmpl"}
+{"filename": "themes/lanyon/templates/base_helper.tmpl", "uri": "base_helper.tmpl", "source_encoding": "utf-8", "line_map": {"16": 0, "21": 2, "22": 61, "23": 81, "24": 96, "25": 119, "26": 129, "32": 3, "59": 3, "60": 6, "61": 7, "62": 8, "63": 10, "64": 11, "65": 13, "66": 14, "67": 15, "68": 17, "69": 18, "70": 21, "71": 21, "72": 21, "73": 24, "74": 25, "75": 25, "76": 25, "77": 27, "78": 28, "79": 28, "80": 28, "81": 28, "82": 30, "83": 30, "84": 31, "85": 31, "86": 32, "87": 33, "88": 33, "89": 33, "90": 35, "91": 36, "92": 37, "93": 38, "94": 38, "95": 38, "96": 38, "97": 38, "98": 38, "99": 38, "100": 41, "101": 42, "102": 43, "103": 43, "104": 43, "105": 45, "106": 46, "107": 47, "108": 47, "109": 47, "110": 49, "111": 50, "112": 50, "113": 50, "114": 52, "115": 53, "116": 53, "117": 54, "118": 55, "119": 56, "120": 57, "121": 57, "122": 57, "123": 59, "124": 60, "125": 60, "131": 63, "138": 63, "139": 64, "140": 65, "141": 66, "142": 68, "143": 69, "144": 71, "145": 72, "146": 73, "147": 74, "148": 75, "149": 77, "150": 80, "151": 80, "152": 80, "158": 83, "164": 83, "165": 84, "166": 85, "167": 86, "168": 87, "169": 91, "170": 92, "171": 95, "177": 98, "187": 98, "188": 99, "189": 100, "190": 100, "191": 100, "192": 101, "193": 102, "194": 103, "195": 104, "196": 104, "197": 104, "198": 104, "199": 104, "200": 106, "201": 107, "202": 107, "203": 107, "204": 110, "205": 111, "206": 112, "207": 113, "208": 113, "209": 113, "210": 113, "211": 113, "212": 115, "213": 116, "214": 116, "215": 116, "221": 121, "230": 121, "231": 123, "232": 124, "233": 125, "234": 125, "235": 125, "236": 125, "237": 125, "238": 125, "239": 125, "240": 128, "246": 240}}
 __M_END_METADATA
 """

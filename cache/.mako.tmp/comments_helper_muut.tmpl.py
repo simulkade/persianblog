@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1497811476.3219395
+_modified_time = 1532602037.56968
 _enable_loop = True
-_template_filename = '/home/ali/MyPython3/lib/python3.5/site-packages/nikola/data/themes/base/templates/comments_helper_muut.tmpl'
+_template_filename = '/home/ali/nikola/lib/python3.6/site-packages/nikola/data/themes/base/templates/comments_helper_muut.tmpl'
 _template_uri = 'comments_helper_muut.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['comment_link', 'comment_form', 'comment_link_script']
+_exports = ['comment_form', 'comment_link', 'comment_link_script']
 
 
 def render_body(context,**pageargs):
@@ -21,16 +21,6 @@ def render_body(context,**pageargs):
         __M_writer('\n')
         __M_writer('\n\n')
         __M_writer('\n\n\n')
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_comment_link(context,link,identifier):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        __M_writer = context.writer()
         __M_writer('\n')
         return ''
     finally:
@@ -54,6 +44,16 @@ def render_comment_form(context,url,title,identifier):
         context.caller_stack._pop_frame()
 
 
+def render_comment_link(context,link,identifier):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        __M_writer = context.writer()
+        __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_comment_link_script(context):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -66,6 +66,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"48": 4, "34": 7, "67": 61, "40": 3, "45": 3, "46": 4, "47": 4, "16": 0, "49": 4, "50": 4, "51": 4, "21": 2, "22": 5, "23": 8, "24": 13, "57": 11, "61": 11, "30": 7}, "source_encoding": "utf-8", "uri": "comments_helper_muut.tmpl", "filename": "/home/ali/MyPython3/lib/python3.5/site-packages/nikola/data/themes/base/templates/comments_helper_muut.tmpl"}
+{"filename": "/home/ali/nikola/lib/python3.6/site-packages/nikola/data/themes/base/templates/comments_helper_muut.tmpl", "uri": "comments_helper_muut.tmpl", "source_encoding": "utf-8", "line_map": {"16": 0, "21": 2, "22": 5, "23": 8, "24": 13, "30": 3, "35": 3, "36": 4, "37": 4, "38": 4, "39": 4, "40": 4, "41": 4, "47": 7, "51": 7, "57": 11, "61": 11, "67": 61}}
 __M_END_METADATA
 """
