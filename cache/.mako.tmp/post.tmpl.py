@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1533246143.3741646
+_modified_time = 1548507521.9174137
 _enable_loop = True
 _template_filename = '/home/ali/nikola/lib/python3.6/site-packages/nikola/data/themes/base/templates/post.tmpl'
 _template_uri = 'post.tmpl'
@@ -39,18 +39,19 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def extra_head():
+            return render_extra_head(context._locals(__M_locals))
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
+        smartjoin = context.get('smartjoin', UNDEFINED)
         parent = context.get('parent', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        post = context.get('post', UNDEFINED)
-        def extra_head():
-            return render_extra_head(context._locals(__M_locals))
-        pheader = _mako_get_namespace(context, 'pheader')
-        helper = _mako_get_namespace(context, 'helper')
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
         math = _mako_get_namespace(context, 'math')
+        helper = _mako_get_namespace(context, 'helper')
         messages = context.get('messages', UNDEFINED)
+        post = context.get('post', UNDEFINED)
         comments = _mako_get_namespace(context, 'comments')
+        pheader = _mako_get_namespace(context, 'pheader')
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -75,19 +76,20 @@ def render_body(context,**pageargs):
 def render_extra_head(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        parent = context.get('parent', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
         def extra_head():
             return render_extra_head(context)
-        post = context.get('post', UNDEFINED)
         math = _mako_get_namespace(context, 'math')
+        helper = _mako_get_namespace(context, 'helper')
+        post = context.get('post', UNDEFINED)
+        smartjoin = context.get('smartjoin', UNDEFINED)
+        parent = context.get('parent', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    ')
         __M_writer(str(parent.extra_head()))
         __M_writer('\n')
         if post.meta('keywords'):
             __M_writer('    <meta name="keywords" content="')
-            __M_writer(filters.html_escape(str(post.meta('keywords'))))
+            __M_writer(filters.html_escape(str(smartjoin(', ', post.meta('keywords')))))
             __M_writer('">\n')
         __M_writer('    <meta name="author" content="')
         __M_writer(filters.html_escape(str(post.author())))
@@ -123,15 +125,15 @@ def render_extra_head(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        pheader = _mako_get_namespace(context, 'pheader')
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
         def content():
             return render_content(context)
-        post = context.get('post', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
         math = _mako_get_namespace(context, 'math')
+        helper = _mako_get_namespace(context, 'helper')
         messages = context.get('messages', UNDEFINED)
+        post = context.get('post', UNDEFINED)
         comments = _mako_get_namespace(context, 'comments')
+        pheader = _mako_get_namespace(context, 'pheader')
         __M_writer = context.writer()
         __M_writer('\n<article class="post-')
         __M_writer(str(post.meta('type')))
@@ -162,6 +164,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/home/ali/nikola/lib/python3.6/site-packages/nikola/data/themes/base/templates/post.tmpl", "uri": "post.tmpl", "source_encoding": "utf-8", "line_map": {"23": 2, "26": 3, "29": 4, "32": 5, "38": 0, "55": 2, "56": 3, "57": 4, "58": 5, "59": 6, "64": 27, "69": 50, "75": 8, "85": 8, "86": 9, "87": 9, "88": 10, "89": 11, "90": 11, "91": 11, "92": 13, "93": 13, "94": 13, "95": 14, "96": 15, "97": 15, "98": 15, "99": 15, "100": 15, "101": 17, "102": 18, "103": 18, "104": 18, "105": 18, "106": 18, "107": 20, "108": 21, "109": 23, "110": 23, "111": 23, "112": 24, "113": 24, "114": 25, "115": 25, "116": 26, "117": 26, "123": 29, "136": 29, "137": 30, "138": 30, "139": 31, "140": 31, "141": 33, "142": 33, "143": 37, "144": 37, "145": 38, "146": 38, "147": 41, "148": 42, "149": 43, "150": 43, "151": 44, "152": 44, "153": 47, "154": 47, "155": 47, "156": 49, "157": 49, "163": 157}}
+{"filename": "/home/ali/nikola/lib/python3.6/site-packages/nikola/data/themes/base/templates/post.tmpl", "uri": "post.tmpl", "source_encoding": "utf-8", "line_map": {"23": 2, "26": 3, "29": 4, "32": 5, "38": 0, "56": 2, "57": 3, "58": 4, "59": 5, "60": 6, "65": 27, "70": 50, "76": 8, "87": 8, "88": 9, "89": 9, "90": 10, "91": 11, "92": 11, "93": 11, "94": 13, "95": 13, "96": 13, "97": 14, "98": 15, "99": 15, "100": 15, "101": 15, "102": 15, "103": 17, "104": 18, "105": 18, "106": 18, "107": 18, "108": 18, "109": 20, "110": 21, "111": 23, "112": 23, "113": 23, "114": 24, "115": 24, "116": 25, "117": 25, "118": 26, "119": 26, "125": 29, "138": 29, "139": 30, "140": 30, "141": 31, "142": 31, "143": 33, "144": 33, "145": 37, "146": 37, "147": 38, "148": 38, "149": 41, "150": 42, "151": 43, "152": 43, "153": 44, "154": 44, "155": 47, "156": 47, "157": 47, "158": 49, "159": 49, "165": 159}}
 __M_END_METADATA
 """
