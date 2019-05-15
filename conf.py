@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import unicode_literals
 import time
 
 # !! This is the configuration of Nikola. !! #
@@ -26,7 +25,7 @@ SITE_URL = "http://persian.simulkade.com/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "http://persian.simulkade.com/"
 BLOG_EMAIL = "a.a.eftekhari@outlook.com"
-BLOG_DESCRIPTION = "نه چندان جدی"  # (translatable)
+BLOG_DESCRIPTION = "تماشاکُنانِ بُستان"  # (translatable)
 
 # Nikola is multilingual!
 #
@@ -127,6 +126,8 @@ NAVIGATION_LINKS = {
     ),
 }
 
+
+
 #NAVIGATION_LINKS = {
 #    DEFAULT_LANG: (
 #        ('/index.html', 'Home', 'icon-home'),
@@ -140,7 +141,9 @@ NAVIGATION_LINKS = {
 #}
 
 # Name of the theme to use.
-THEME = "lanyon"
+# THEME = "lanyon"
+
+THEME = "foundation6"
 
 # Below this point, everything is optional
 
@@ -217,9 +220,9 @@ POSTS = (
     ("posts/*.txt", "posts", "post.tmpl"),
 )
 PAGES = (
+    ("stories/*.md", "stories", "story.tmpl"),
     ("stories/*.rst", "stories", "story.tmpl"),
     ("stories/*.txt", "stories", "story.tmpl"),
-    ("stories/*.md", "stories", "story.tmpl"),
 )
 
 # One or more folders containing files to be copied as-is into the output.
@@ -591,6 +594,7 @@ GITHUB_COMMIT_SOURCE = True
 
 # 'Read more...' for the index page, if INDEX_TEASERS is True (translatable)
 INDEX_READ_MORE_LINK = '<p class="more"><a href="{link}">{read_more}…</a></p>'
+# INDEX_READ_MORE_LINK = '<a class="button is-link" href="{link}" style="height:28px"> {read_more} <span class="icon is-small"> <i class="fa fa-angle-double-right"></i></span></a>'
 # 'Read more...' for the RSS_FEED, if RSS_TEASERS is True (translatable)
 FEED_READ_MORE_LINK = '<p><a href="{link}">{read_more}…</a> ({min_remaining_read})</p>'
 
@@ -874,7 +878,7 @@ INDEX_DISPLAY_POST_COUNT = 3
 
 # If you hate "Filenames with Capital Letters and Spaces.md", you should
 # set this to true.
-UNSLUGIFY_TITLES = True
+FILE_METADATA_UNSLUGIFY_TITLES = True
 
 # Additional metadata that is added to a post when creating a new_post
 # ADDITIONAL_METADATA = {}
