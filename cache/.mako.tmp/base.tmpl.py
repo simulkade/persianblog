@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1557954963.8045259
+_modified_time = 1557955126.0716956
 _enable_loop = True
 _template_filename = 'themes/foundation6/templates/base.tmpl'
 _template_uri = 'base.tmpl'
@@ -38,22 +38,22 @@ def render_body(context,**pageargs):
         _mako_get_namespace(context, 'header')._populate(_import_ns, ['*'])
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
         body_end = _import_ns.get('body_end', context.get('body_end', UNDEFINED))
-        def extra_head():
-            return render_extra_head(context._locals(__M_locals))
-        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
+        blog_description = _import_ns.get('blog_description', context.get('blog_description', UNDEFINED))
+        header = _mako_get_namespace(context, 'header')
         base = _mako_get_namespace(context, 'base')
         def content():
             return render_content(context._locals(__M_locals))
-        set_locale = _import_ns.get('set_locale', context.get('set_locale', UNDEFINED))
         template_hooks = _import_ns.get('template_hooks', context.get('template_hooks', UNDEFINED))
-        footer = _mako_get_namespace(context, 'footer')
-        header = _mako_get_namespace(context, 'header')
-        def extra_js():
-            return render_extra_js(context._locals(__M_locals))
+        set_locale = _import_ns.get('set_locale', context.get('set_locale', UNDEFINED))
         def page_header():
             return render_page_header(context._locals(__M_locals))
+        def extra_js():
+            return render_extra_js(context._locals(__M_locals))
+        footer = _mako_get_namespace(context, 'footer')
         lang = _import_ns.get('lang', context.get('lang', UNDEFINED))
-        blog_description = _import_ns.get('blog_description', context.get('blog_description', UNDEFINED))
+        def extra_head():
+            return render_extra_head(context._locals(__M_locals))
+        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -124,8 +124,8 @@ def render_page_header(context,**pageargs):
         _mako_get_namespace(context, 'footer')._populate(_import_ns, ['*'])
         def page_header():
             return render_page_header(context)
-        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
         blog_description = _import_ns.get('blog_description', context.get('blog_description', UNDEFINED))
+        blog_title = _import_ns.get('blog_title', context.get('blog_title', UNDEFINED))
         __M_writer = context.writer()
         __M_writer('\n<h1>')
         __M_writer(filters.html_escape(str(blog_title)))

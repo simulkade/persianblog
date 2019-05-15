@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1557954964.0238192
+_modified_time = 1557955126.3109443
 _enable_loop = True
 _template_filename = 'themes/foundation6/templates/post.tmpl'
 _template_uri = 'post.tmpl'
@@ -39,26 +39,26 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        blog_title = context.get('blog_title', UNDEFINED)
-        date_format = context.get('date_format', UNDEFINED)
-        author_pages_generated = context.get('author_pages_generated', UNDEFINED)
-        math = _mako_get_namespace(context, 'math')
-        messages = context.get('messages', UNDEFINED)
         _link = context.get('_link', UNDEFINED)
-        def content():
-            return render_content(context._locals(__M_locals))
-        def page_header():
-            return render_page_header(context._locals(__M_locals))
         blog_description = context.get('blog_description', UNDEFINED)
-        comments = _mako_get_namespace(context, 'comments')
-        title = context.get('title', UNDEFINED)
         def extra_head():
             return render_extra_head(context._locals(__M_locals))
+        math = _mako_get_namespace(context, 'math')
+        comments = _mako_get_namespace(context, 'comments')
         site_has_comments = context.get('site_has_comments', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
+        author_pages_generated = context.get('author_pages_generated', UNDEFINED)
+        date_format = context.get('date_format', UNDEFINED)
         pheader = _mako_get_namespace(context, 'pheader')
         post = context.get('post', UNDEFINED)
+        def content():
+            return render_content(context._locals(__M_locals))
         helper = _mako_get_namespace(context, 'helper')
+        def page_header():
+            return render_page_header(context._locals(__M_locals))
         parent = context.get('parent', UNDEFINED)
+        title = context.get('title', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -88,12 +88,12 @@ def render_body(context,**pageargs):
 def render_extra_head(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        helper = _mako_get_namespace(context, 'helper')
+        post = context.get('post', UNDEFINED)
+        parent = context.get('parent', UNDEFINED)
+        math = _mako_get_namespace(context, 'math')
         def extra_head():
             return render_extra_head(context)
-        helper = _mako_get_namespace(context, 'helper')
-        math = _mako_get_namespace(context, 'math')
-        parent = context.get('parent', UNDEFINED)
-        post = context.get('post', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    ')
         __M_writer(str(parent.extra_head()))
@@ -140,13 +140,13 @@ def render_extra_head(context,**pageargs):
 def render_page_header(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        title = context.get('title', UNDEFINED)
         date_format = context.get('date_format', UNDEFINED)
-        blog_title = context.get('blog_title', UNDEFINED)
+        post = context.get('post', UNDEFINED)
         def page_header():
             return render_page_header(context)
         blog_description = context.get('blog_description', UNDEFINED)
-        post = context.get('post', UNDEFINED)
+        title = context.get('title', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if title and not post.meta('hidetitle'):
@@ -169,17 +169,17 @@ def render_page_header(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        comments = _mako_get_namespace(context, 'comments')
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
         pheader = _mako_get_namespace(context, 'pheader')
         post = context.get('post', UNDEFINED)
-        author_pages_generated = context.get('author_pages_generated', UNDEFINED)
-        helper = _mako_get_namespace(context, 'helper')
         math = _mako_get_namespace(context, 'math')
-        messages = context.get('messages', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
+        comments = _mako_get_namespace(context, 'comments')
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
         def content():
             return render_content(context)
+        helper = _mako_get_namespace(context, 'helper')
+        messages = context.get('messages', UNDEFINED)
+        author_pages_generated = context.get('author_pages_generated', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<div class="blog-post">\n    ')
         __M_writer(str(pheader.html_post_header()))
