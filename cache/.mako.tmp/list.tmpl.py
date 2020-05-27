@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1589829390.8086724
+_modified_time = 1590597871.836975
 _enable_loop = True
 _template_filename = 'themes/foundation6/templates/list.tmpl'
 _template_uri = 'list.tmpl'
@@ -28,14 +28,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        messages = context.get('messages', UNDEFINED)
-        items = context.get('items', UNDEFINED)
-        blog_title = context.get('blog_title', UNDEFINED)
         title = context.get('title', UNDEFINED)
-        def page_header():
-            return render_page_header(context._locals(__M_locals))
+        blog_title = context.get('blog_title', UNDEFINED)
+        items = context.get('items', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        def page_header():
+            return render_page_header(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\n\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'page_header'):
@@ -57,9 +57,9 @@ def render_page_header(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         title = context.get('title', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
         def page_header():
             return render_page_header(context)
-        blog_title = context.get('blog_title', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<h1>')
         __M_writer(filters.html_escape(str(blog_title)))
@@ -74,8 +74,8 @@ def render_page_header(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        items = context.get('items', UNDEFINED)
         messages = context.get('messages', UNDEFINED)
+        items = context.get('items', UNDEFINED)
         def content():
             return render_content(context)
         __M_writer = context.writer()
